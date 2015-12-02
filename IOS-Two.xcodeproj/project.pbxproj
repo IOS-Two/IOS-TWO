@@ -13,6 +13,8 @@
 		7F03C5191C0C5E380001F097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F03C5181C0C5E380001F097 /* Assets.xcassets */; };
 		7F03C5271C0C5E380001F097 /* IOS_TwoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C5261C0C5E380001F097 /* IOS_TwoTests.m */; };
 		7F03C5321C0C5E380001F097 /* IOS_TwoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C5311C0C5E380001F097 /* IOS_TwoUITests.m */; };
+		7FB16DA51C0F0D3B005BFC0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */; };
+		7FB16DA71C0F107E005BFC0F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		7F03C52D1C0C5E380001F097 /* IOS-TwoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IOS-TwoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F03C5311C0C5E380001F097 /* IOS_TwoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOS_TwoUITests.m; sourceTree = "<group>"; };
 		7F03C5331C0C5E380001F097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		7F03C5001C0C5E380001F097 = {
 			isa = PBXGroup;
 			children = (
+				7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */,
 				7F03C50B1C0C5E380001F097 /* IOS-Two */,
 				7F03C5251C0C5E380001F097 /* IOS-TwoTests */,
 				7F03C5301C0C5E380001F097 /* IOS-TwoUITests */,
@@ -104,6 +109,7 @@
 				7F03C5181C0C5E380001F097 /* Assets.xcassets */,
 				7F03C51D1C0C5E380001F097 /* Info.plist */,
 				7F03C50C1C0C5E380001F097 /* Supporting Files */,
+				7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */,
 			);
 			path = "IOS-Two";
 			sourceTree = "<group>";
@@ -237,7 +243,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB16DA71C0F107E005BFC0F /* Launch Screen.storyboard in Resources */,
 				7F03C5191C0C5E380001F097 /* Assets.xcassets in Resources */,
+				7FB16DA51C0F0D3B005BFC0F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

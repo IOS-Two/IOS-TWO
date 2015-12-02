@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UITabBarController *rootTabBarController = [[UITabBarController alloc] init];
-    ViewController *v1 = [[ViewController alloc]init];
+    ViewController *v1 = [[ViewController alloc] init];
     v1.navigationItem.title=@"首页";
     UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:v1];
     nav1.tabBarItem.title = @"首页";
