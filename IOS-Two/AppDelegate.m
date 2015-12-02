@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,36 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UITabBarController *rootTabBarController = [[UITabBarController alloc] init];
+    ViewController *v1 = [[ViewController alloc]init];
+    v1.navigationItem.title=@"首页";
+    UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:v1];
+    nav1.tabBarItem.title = @"首页";
+    
+    ViewController *v2 = [[ViewController alloc]init];
+    v2.navigationItem.title=@"文章";
+    UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:v2];
+    nav2.tabBarItem.title = @"文章";
+    
+    ViewController *v3 = [[ViewController alloc]init];
+    v3.navigationItem.title = @"音乐";
+    UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:v3];
+    nav3.tabBarItem.title = @"音乐";
+    
+    ViewController *v4 = [[ViewController alloc]init];
+    v4.navigationItem.title = @"图片";
+    UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:v4];
+    nav4.tabBarItem.title = @"图片";
+    
+    ViewController *v5 = [[ViewController alloc]init];
+    v5.navigationItem.title = @"我";
+    UINavigationController *nav5 = [[UINavigationController alloc]initWithRootViewController:v5];
+    nav5.tabBarItem.title = @"我";
+    
+    rootTabBarController.viewControllers = @[nav1,nav2,nav3,nav4,nav5];
+    self.window.rootViewController = rootTabBarController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

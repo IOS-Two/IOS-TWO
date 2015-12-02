@@ -10,9 +10,7 @@
 		7F03C50E1C0C5E380001F097 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C50D1C0C5E380001F097 /* main.m */; };
 		7F03C5111C0C5E380001F097 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C5101C0C5E380001F097 /* AppDelegate.m */; };
 		7F03C5141C0C5E380001F097 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C5131C0C5E380001F097 /* ViewController.m */; };
-		7F03C5171C0C5E380001F097 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F03C5151C0C5E380001F097 /* Main.storyboard */; };
 		7F03C5191C0C5E380001F097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F03C5181C0C5E380001F097 /* Assets.xcassets */; };
-		7F03C51C1C0C5E380001F097 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F03C51A1C0C5E380001F097 /* LaunchScreen.storyboard */; };
 		7F03C5271C0C5E380001F097 /* IOS_TwoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C5261C0C5E380001F097 /* IOS_TwoTests.m */; };
 		7F03C5321C0C5E380001F097 /* IOS_TwoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C5311C0C5E380001F097 /* IOS_TwoUITests.m */; };
 /* End PBXBuildFile section */
@@ -41,9 +39,7 @@
 		7F03C5101C0C5E380001F097 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7F03C5121C0C5E380001F097 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7F03C5131C0C5E380001F097 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7F03C5161C0C5E380001F097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F03C5181C0C5E380001F097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7F03C51B1C0C5E380001F097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F03C51D1C0C5E380001F097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F03C5221C0C5E380001F097 /* IOS-TwoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IOS-TwoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F03C5261C0C5E380001F097 /* IOS_TwoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOS_TwoTests.m; sourceTree = "<group>"; };
@@ -105,9 +101,7 @@
 				7F03C5101C0C5E380001F097 /* AppDelegate.m */,
 				7F03C5121C0C5E380001F097 /* ViewController.h */,
 				7F03C5131C0C5E380001F097 /* ViewController.m */,
-				7F03C5151C0C5E380001F097 /* Main.storyboard */,
 				7F03C5181C0C5E380001F097 /* Assets.xcassets */,
-				7F03C51A1C0C5E380001F097 /* LaunchScreen.storyboard */,
 				7F03C51D1C0C5E380001F097 /* Info.plist */,
 				7F03C50C1C0C5E380001F097 /* Supporting Files */,
 			);
@@ -243,9 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F03C51C1C0C5E380001F097 /* LaunchScreen.storyboard in Resources */,
 				7F03C5191C0C5E380001F097 /* Assets.xcassets in Resources */,
-				7F03C5171C0C5E380001F097 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,25 +298,6 @@
 			targetProxy = 7F03C52E1C0C5E380001F097 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		7F03C5151C0C5E380001F097 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7F03C5161C0C5E380001F097 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7F03C51A1C0C5E380001F097 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7F03C51B1C0C5E380001F097 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7F03C5341C0C5E380001F097 /* Debug */ = {
@@ -498,6 +471,7 @@
 				7F03C5381C0C5E380001F097 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F03C5391C0C5E380001F097 /* Build configuration list for PBXNativeTarget "IOS-TwoTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +480,7 @@
 				7F03C53B1C0C5E380001F097 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F03C53C1C0C5E380001F097 /* Build configuration list for PBXNativeTarget "IOS-TwoUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +489,7 @@
 				7F03C53E1C0C5E380001F097 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

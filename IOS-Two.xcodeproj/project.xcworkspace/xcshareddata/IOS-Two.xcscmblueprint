@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2FDD2BD411436F390D885A1B85307DFA889CA725",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2FDD2BD411436F390D885A1B85307DFA889CA725" : 0,
+    "6E9EB6FCEE8A331287ADBF73CA0B430ADDDDC347" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D96B6ABD-F211-4321-A39D-5DD7ED9E8644",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2FDD2BD411436F390D885A1B85307DFA889CA725" : "IOS-Two\/",
+    "6E9EB6FCEE8A331287ADBF73CA0B430ADDDDC347" : "IOS-Two\/IOS-Two\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "IOS-Two",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "IOS-Two.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IOS-Two\/IOS-Two.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2FDD2BD411436F390D885A1B85307DFA889CA725"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jiangxiaozhou\/IOS-Two.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6E9EB6FCEE8A331287ADBF73CA0B430ADDDDC347"
+    }
+  ]
+}
