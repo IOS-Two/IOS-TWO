@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "ReadingViewController.h"
+#import "ReadViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,8 +26,13 @@
     v1.navigationItem.title=@"首页";
     UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:v1];
     nav1.tabBarItem.title = @"首页";
+//    
+//    ReadingViewController *v2 = [[ReadingViewController alloc]init];
+//    v2.navigationItem.title=@"文章";
+//    UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:v2];
+//    nav2.tabBarItem.title = @"文章";
     
-    ViewController *v2 = [[ViewController alloc]init];
+    ReadViewController *v2 = [[ReadViewController alloc]init];
     v2.navigationItem.title=@"文章";
     UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:v2];
     nav2.tabBarItem.title = @"文章";
