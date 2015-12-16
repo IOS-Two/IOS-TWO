@@ -13,11 +13,27 @@
 		7F03C5191C0C5E380001F097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F03C5181C0C5E380001F097 /* Assets.xcassets */; };
 		7F03C5271C0C5E380001F097 /* IOS_TwoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C5261C0C5E380001F097 /* IOS_TwoTests.m */; };
 		7F03C5321C0C5E380001F097 /* IOS_TwoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03C5311C0C5E380001F097 /* IOS_TwoUITests.m */; };
-		7F3654511C12868C003A2F02 /* ReadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F36544F1C12868C003A2F02 /* ReadingViewController.m */; };
 		7F36545B1C12AD35003A2F02 /* ReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3654591C12AD35003A2F02 /* ReadViewController.m */; };
 		7F36545C1C12AD35003A2F02 /* ReadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F36545A1C12AD35003A2F02 /* ReadViewController.xib */; };
+		7F36546E1C13369E003A2F02 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36546D1C13369E003A2F02 /* MapKit.framework */; };
+		7F3654701C1336AC003A2F02 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36546F1C1336AC003A2F02 /* ImageIO.framework */; };
+		7F7F60461C1D5A790039C1CF /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F60441C1D5A790039C1CF /* SettingTableViewController.m */; };
+		7F7F60471C1D5A790039C1CF /* SettingTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7F60451C1D5A790039C1CF /* SettingTableViewController.xib */; };
+		7F7F604B1C1D74C90039C1CF /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F60491C1D74C90039C1CF /* AboutViewController.m */; };
+		7F7F604C1C1D74C90039C1CF /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7F604A1C1D74C90039C1CF /* AboutViewController.xib */; };
+		7F7F60581C1D8FA30039C1CF /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F60561C1D8FA30039C1CF /* PictureViewController.m */; };
+		7F7F60591C1D8FA30039C1CF /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7F60571C1D8FA30039C1CF /* PictureViewController.xib */; };
 		7FB16DA51C0F0D3B005BFC0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */; };
 		7FB16DA71C0F107E005BFC0F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */; };
+		7FF5B8D21C20081900966ED9 /* ReadingEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8D11C20081900966ED9 /* ReadingEntity.m */; };
+		7FF5B8D61C202A6500966ED9 /* PicturevViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8D41C202A6500966ED9 /* PicturevViewController.m */; };
+		7FF5B8D71C202A6500966ED9 /* PicturevViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5B8D51C202A6500966ED9 /* PicturevViewController.xib */; };
+		7FF5B8E01C203CC200966ED9 /* PictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8DE1C203CC200966ED9 /* PictureTableViewCell.m */; };
+		7FF5B8E11C203CC200966ED9 /* PictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5B8DF1C203CC200966ED9 /* PictureTableViewCell.xib */; };
+		7FF5B8EF1C20624F00966ED9 /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8ED1C20624F00966ED9 /* QuestionTableViewCell.m */; };
+		7FF5B8F01C20624F00966ED9 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5B8EE1C20624F00966ED9 /* QuestionTableViewCell.xib */; };
+		7FF5B8F41C21080600966ED9 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8F21C21080600966ED9 /* QuestionViewController.m */; };
+		7FF5B8F51C21080600966ED9 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5B8F31C21080600966ED9 /* QuestionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,13 +68,36 @@
 		7F03C52D1C0C5E380001F097 /* IOS-TwoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IOS-TwoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F03C5311C0C5E380001F097 /* IOS_TwoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOS_TwoUITests.m; sourceTree = "<group>"; };
 		7F03C5331C0C5E380001F097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F36544E1C12868C003A2F02 /* ReadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingViewController.h; sourceTree = "<group>"; };
-		7F36544F1C12868C003A2F02 /* ReadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingViewController.m; sourceTree = "<group>"; };
 		7F3654581C12AD35003A2F02 /* ReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadViewController.h; sourceTree = "<group>"; };
 		7F3654591C12AD35003A2F02 /* ReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadViewController.m; sourceTree = "<group>"; };
 		7F36545A1C12AD35003A2F02 /* ReadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadViewController.xib; sourceTree = "<group>"; };
+		7F36546D1C13369E003A2F02 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7F36546F1C1336AC003A2F02 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		7F7F60431C1D5A790039C1CF /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		7F7F60441C1D5A790039C1CF /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
+		7F7F60451C1D5A790039C1CF /* SettingTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewController.xib; sourceTree = "<group>"; };
+		7F7F60481C1D74C90039C1CF /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		7F7F60491C1D74C90039C1CF /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		7F7F604A1C1D74C90039C1CF /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		7F7F60551C1D8FA30039C1CF /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
+		7F7F60561C1D8FA30039C1CF /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
+		7F7F60571C1D8FA30039C1CF /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
 		7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7FF5B8D01C20081900966ED9 /* ReadingEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingEntity.h; sourceTree = "<group>"; };
+		7FF5B8D11C20081900966ED9 /* ReadingEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingEntity.m; sourceTree = "<group>"; };
+		7FF5B8D31C202A6500966ED9 /* PicturevViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturevViewController.h; sourceTree = "<group>"; };
+		7FF5B8D41C202A6500966ED9 /* PicturevViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturevViewController.m; sourceTree = "<group>"; };
+		7FF5B8D51C202A6500966ED9 /* PicturevViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicturevViewController.xib; sourceTree = "<group>"; };
+		7FF5B8DD1C203CC200966ED9 /* PictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureTableViewCell.h; sourceTree = "<group>"; };
+		7FF5B8DE1C203CC200966ED9 /* PictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureTableViewCell.m; sourceTree = "<group>"; };
+		7FF5B8DF1C203CC200966ED9 /* PictureTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureTableViewCell.xib; sourceTree = "<group>"; };
+		7FF5B8EC1C20624F00966ED9 /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTableViewCell.h; sourceTree = "<group>"; };
+		7FF5B8ED1C20624F00966ED9 /* QuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionTableViewCell.m; sourceTree = "<group>"; };
+		7FF5B8EE1C20624F00966ED9 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
+		7FF5B8F11C21080600966ED9 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		7FF5B8F21C21080600966ED9 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		7FF5B8F31C21080600966ED9 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F3654701C1336AC003A2F02 /* ImageIO.framework in Frameworks */,
+				7F36546E1C13369E003A2F02 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +130,8 @@
 		7F03C5001C0C5E380001F097 = {
 			isa = PBXGroup;
 			children = (
+				7F36546F1C1336AC003A2F02 /* ImageIO.framework */,
+				7F36546D1C13369E003A2F02 /* MapKit.framework */,
 				7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */,
 				7F03C50B1C0C5E380001F097 /* IOS-Two */,
 				7F03C5251C0C5E380001F097 /* IOS-TwoTests */,
@@ -118,11 +161,26 @@
 				7F03C51D1C0C5E380001F097 /* Info.plist */,
 				7F03C50C1C0C5E380001F097 /* Supporting Files */,
 				7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */,
-				7F36544E1C12868C003A2F02 /* ReadingViewController.h */,
-				7F36544F1C12868C003A2F02 /* ReadingViewController.m */,
 				7F3654581C12AD35003A2F02 /* ReadViewController.h */,
 				7F3654591C12AD35003A2F02 /* ReadViewController.m */,
 				7F36545A1C12AD35003A2F02 /* ReadViewController.xib */,
+				7F7F60431C1D5A790039C1CF /* SettingTableViewController.h */,
+				7F7F60441C1D5A790039C1CF /* SettingTableViewController.m */,
+				7F7F60451C1D5A790039C1CF /* SettingTableViewController.xib */,
+				7F7F60481C1D74C90039C1CF /* AboutViewController.h */,
+				7F7F60491C1D74C90039C1CF /* AboutViewController.m */,
+				7F7F604A1C1D74C90039C1CF /* AboutViewController.xib */,
+				7F7F60551C1D8FA30039C1CF /* PictureViewController.h */,
+				7F7F60561C1D8FA30039C1CF /* PictureViewController.m */,
+				7F7F60571C1D8FA30039C1CF /* PictureViewController.xib */,
+				7FF5B8D01C20081900966ED9 /* ReadingEntity.h */,
+				7FF5B8D11C20081900966ED9 /* ReadingEntity.m */,
+				7FF5B8D31C202A6500966ED9 /* PicturevViewController.h */,
+				7FF5B8D41C202A6500966ED9 /* PicturevViewController.m */,
+				7FF5B8D51C202A6500966ED9 /* PicturevViewController.xib */,
+				7FF5B8F11C21080600966ED9 /* QuestionViewController.h */,
+				7FF5B8F21C21080600966ED9 /* QuestionViewController.m */,
+				7FF5B8F31C21080600966ED9 /* QuestionViewController.xib */,
 			);
 			path = "IOS-Two";
 			sourceTree = "<group>";
@@ -131,6 +189,12 @@
 			isa = PBXGroup;
 			children = (
 				7F03C50D1C0C5E380001F097 /* main.m */,
+				7FF5B8DD1C203CC200966ED9 /* PictureTableViewCell.h */,
+				7FF5B8DE1C203CC200966ED9 /* PictureTableViewCell.m */,
+				7FF5B8DF1C203CC200966ED9 /* PictureTableViewCell.xib */,
+				7FF5B8EC1C20624F00966ED9 /* QuestionTableViewCell.h */,
+				7FF5B8ED1C20624F00966ED9 /* QuestionTableViewCell.m */,
+				7FF5B8EE1C20624F00966ED9 /* QuestionTableViewCell.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -259,8 +323,15 @@
 			files = (
 				7FB16DA71C0F107E005BFC0F /* Launch Screen.storyboard in Resources */,
 				7F03C5191C0C5E380001F097 /* Assets.xcassets in Resources */,
+				7F7F604C1C1D74C90039C1CF /* AboutViewController.xib in Resources */,
 				7F36545C1C12AD35003A2F02 /* ReadViewController.xib in Resources */,
+				7FF5B8D71C202A6500966ED9 /* PicturevViewController.xib in Resources */,
 				7FB16DA51C0F0D3B005BFC0F /* Default-568h@2x.png in Resources */,
+				7FF5B8F01C20624F00966ED9 /* QuestionTableViewCell.xib in Resources */,
+				7FF5B8E11C203CC200966ED9 /* PictureTableViewCell.xib in Resources */,
+				7F7F60471C1D5A790039C1CF /* SettingTableViewController.xib in Resources */,
+				7FF5B8F51C21080600966ED9 /* QuestionViewController.xib in Resources */,
+				7F7F60591C1D8FA30039C1CF /* PictureViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,10 +357,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F36545B1C12AD35003A2F02 /* ReadViewController.m in Sources */,
+				7FF5B8EF1C20624F00966ED9 /* QuestionTableViewCell.m in Sources */,
+				7FF5B8F41C21080600966ED9 /* QuestionViewController.m in Sources */,
+				7FF5B8D21C20081900966ED9 /* ReadingEntity.m in Sources */,
 				7F03C5141C0C5E380001F097 /* ViewController.m in Sources */,
+				7F7F604B1C1D74C90039C1CF /* AboutViewController.m in Sources */,
 				7F03C5111C0C5E380001F097 /* AppDelegate.m in Sources */,
+				7FF5B8D61C202A6500966ED9 /* PicturevViewController.m in Sources */,
+				7FF5B8E01C203CC200966ED9 /* PictureTableViewCell.m in Sources */,
+				7F7F60581C1D8FA30039C1CF /* PictureViewController.m in Sources */,
+				7F7F60461C1D5A790039C1CF /* SettingTableViewController.m in Sources */,
 				7F03C50E1C0C5E380001F097 /* main.m in Sources */,
-				7F3654511C12868C003A2F02 /* ReadingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

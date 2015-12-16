@@ -11,7 +11,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-
++(int)instanceWho;
++(void)setWho:(int) co;
++(int)getTotalVol;
 @end
 

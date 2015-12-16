@@ -8,8 +8,14 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "ReadingViewController.h"
 #import "ReadViewController.h"
+#import "PictureViewController.h"
+#import "PicturevViewController.h"
+#import "SettingTableViewController.h"
+#import "QuestionViewController.h"
+
+static int who;
+static int TotalVol;
 
 @interface AppDelegate ()
 
@@ -17,40 +23,59 @@
 
 @implementation AppDelegate
 
++(int)getTotalVol {
+    return TotalVol;
+}
+
++(int)instanceWho {
+    return who;
+}
+
++(void)setWho:(int) co {
+    who = co;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UITabBarController *rootTabBarController = [[UITabBarController alloc] init];
+    who = 0;
+    
+    NSString *data1 = @"http://localhost:8080/IosService/TotalVol";
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:data1]];
+    NSError * error = nil;
+    NSURLResponse *response=nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    TotalVol = (int)[aString integerValue];
+    NSLog(@"%d", TotalVol);
+   
     ViewController *v1 = [[ViewController alloc] init];
     v1.navigationItem.title=@"首页";
     UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:v1];
     nav1.tabBarItem.title = @"首页";
-//    
-//    ReadingViewController *v2 = [[ReadingViewController alloc]init];
-//    v2.navigationItem.title=@"文章";
-//    UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:v2];
-//    nav2.tabBarItem.title = @"文章";
     
     ReadViewController *v2 = [[ReadViewController alloc]init];
     v2.navigationItem.title=@"文章";
     UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:v2];
     nav2.tabBarItem.title = @"文章";
     
-    ViewController *v3 = [[ViewController alloc]init];
-    v3.navigationItem.title = @"音乐";
+    QuestionViewController *v3 = [[QuestionViewController alloc]init];
+    v3.navigationItem.title = @"问题";
     UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:v3];
-    nav3.tabBarItem.title = @"音乐";
+    nav3.tabBarItem.title = @"问题";
     
-    ViewController *v4 = [[ViewController alloc]init];
+    PicturevViewController *v4 = [[PicturevViewController alloc]init];
     v4.navigationItem.title = @"图片";
     UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:v4];
     nav4.tabBarItem.title = @"图片";
     
-    ViewController *v5 = [[ViewController alloc]init];
-    v5.navigationItem.title = @"我";
+    SettingTableViewController *v5 = [[SettingTableViewController alloc]init];
+    v5.navigationItem.title = @"设置";
     UINavigationController *nav5 = [[UINavigationController alloc]initWithRootViewController:v5];
-    nav5.tabBarItem.title = @"我";
+    nav5.tabBarItem.title = @"设置";
     
     rootTabBarController.viewControllers = @[nav1,nav2,nav3,nav4,nav5];
     self.window.rootViewController = rootTabBarController;

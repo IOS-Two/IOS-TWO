@@ -20,7 +20,7 @@ NSURLRequest *urlRequest;
     [super viewDidLoad];
     CGRect cgrect=[UIScreen mainScreen].bounds;
     uiWebVIew = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,cgrect.size.width,cgrect.size.height)];
-    urlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://zefange.github.io"]];
+    urlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
     [self.view addSubview:uiWebVIew];
     uiWebVIew.delegate=self;
     [uiWebVIew loadRequest:urlRequest];
