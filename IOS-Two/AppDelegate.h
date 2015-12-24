@@ -14,5 +14,6 @@
 +(int)instanceWho;
 +(void)setWho:(int) co;
 +(int)getTotalVol;
++(CGFloat)getwidth;
 @end
 

@@ -7,6 +7,8 @@
 //
 
 #import "PictureViewController.h"
+#import "AppDelegate.h"
+#import "PictureEntity.h"
 
 @interface PictureViewController ()
 @property (strong, nonatomic) IBOutlet UIWebView *ContentWebView;
@@ -15,12 +17,38 @@
 
 @implementation PictureViewController
 
+-(void) savePictrue:(PictureEntity *)picture {
+    NSString * temp = [NSString stringWithFormat:@"Reading%d.archive" , picture.No];
+    NSString *homePath = NSHomeDirectory();
+    NSString *path = [homePath stringByAppendingPathComponent:temp];
+    
+    BOOL sucess = [NSKeyedArchiver archiveRootObject:picture toFile:path];
+    if (sucess)
+    {
+        NSLog(@"archive sucess");
+    }
+}
+
+-(PictureEntity*) decodePicture:(int)vol path:(NSString*)path{
+    PictureEntity* picture = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    NSLog(@"Read archive");
+    return picture;
+}
+
+
 - (NSString *)htmlForJPGImage:(UIImage *)image
 {
+    CGFloat imageWidth = image.size.width;
+    CGFloat imageHeight = image.size.height;
+    CGFloat p = imageHeight / imageWidth;
     NSData *imageData = UIImageJPEGRepresentation(image,1.0);
     NSString *imageSource = [NSString stringWithFormat:@"data:image/jpg;base64,%@",[imageData base64Encoding]];
-    return [NSString stringWithFormat:@"<img src = \"%@\" />", imageSource];
+    CGFloat width = [AppDelegate getwidth] - 30;
+    CGFloat height = width * p;
+    return [NSString stringWithFormat:@"<img src = \"%@\" height = %f width= %f/>", imageSource, height
+            , width];
 }
+
 
 - (void) Completed:(NSURL *)location URLResponse:(NSURLResponse *)response Error:(NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -45,7 +73,7 @@
                                 "%@"
                                 "</body>"
                                 "</html>"
-                                ,HTMLTitle
+                                ,@"Vol.1"
                                 ,contentImg
                                 , HTMLContent];
             
@@ -63,7 +91,7 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor whiteColor];
     self.ContentWebView.backgroundColor = [UIColor whiteColor];
-    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/IosService/custom.jpg"];
+    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/IosService/haha.jpg"];
     NSURLSessionDownloadTask *downloadPhotoTask =[[NSURLSession sharedSession]
                                                   downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
                                                       [self Completed:location URLResponse:response Error:error];

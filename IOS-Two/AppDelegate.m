@@ -16,6 +16,7 @@
 
 static int who;
 static int TotalVol;
+static CGFloat width;
 
 @interface AppDelegate ()
 
@@ -25,6 +26,10 @@ static int TotalVol;
 
 +(int)getTotalVol {
     return TotalVol;
+}
+
++(CGFloat)getwidth {
+    return width;
 }
 
 +(int)instanceWho {
@@ -38,6 +43,7 @@ static int TotalVol;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    width = [[UIScreen mainScreen] bounds].size.width;
     UITabBarController *rootTabBarController = [[UITabBarController alloc] init];
     who = 0;
     
@@ -67,7 +73,7 @@ static int TotalVol;
     UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:v3];
     nav3.tabBarItem.title = @"问题";
     
-    PicturevViewController *v4 = [[PicturevViewController alloc]init];
+    PictureViewController *v4 = [[PictureViewController alloc]init];
     v4.navigationItem.title = @"图片";
     UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:v4];
     nav4.tabBarItem.title = @"图片";
