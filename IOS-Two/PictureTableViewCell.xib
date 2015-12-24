@@ -15,19 +15,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="758-LS-w6q">
-                        <rect key="frame" x="41" y="-49" width="240" height="128"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grY-Ql-NfU">
+                        <rect key="frame" x="34" y="-43" width="240" height="128"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="128" id="Y0K-3Q-qcH"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="758-LS-w6q" secondAttribute="trailing" constant="10" id="F99-p5-APK"/>
-                    <constraint firstItem="758-LS-w6q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ITS-Mw-Kr2"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="758-LS-w6q" secondAttribute="bottom" id="TtT-0B-Cyu"/>
-                    <constraint firstItem="758-LS-w6q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="wYQ-e0-KI0"/>
+                    <constraint firstItem="grY-Ql-NfU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="I0L-vI-Xiu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="grY-Ql-NfU" secondAttribute="trailing" constant="5" id="Rx2-D3-ZEj"/>
+                    <constraint firstItem="grY-Ql-NfU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="nIp-kU-Hwq"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="pictrueView" destination="758-LS-w6q" id="atj-re-v2u"/>
+                <outlet property="picture" destination="grY-Ql-NfU" id="cWs-rt-3th"/>
             </connections>
         </tableViewCell>
     </objects>

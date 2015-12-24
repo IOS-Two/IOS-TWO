@@ -23,6 +23,7 @@
     self.tableView.separatorStyle = NO;
     self.tableView.estimatedRowHeight = 200;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
     // Initialization code
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -71,8 +72,10 @@
         UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height+20;
     } else {
-        
-        return 300;
+//        float p = 576 / 768;
+//        CGFloat width = [[UIScreen mainScreen] bounds].size.width;
+//        return width * p;
+        return 400;
     }
 }
 /*

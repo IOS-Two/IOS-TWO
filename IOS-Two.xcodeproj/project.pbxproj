@@ -25,11 +25,12 @@
 		7F7F60591C1D8FA30039C1CF /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7F60571C1D8FA30039C1CF /* PictureViewController.xib */; };
 		7FB16DA51C0F0D3B005BFC0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */; };
 		7FB16DA71C0F107E005BFC0F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */; };
+		7FC76E261C2BB55C005D8FF8 /* PictureEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC76E251C2BB55C005D8FF8 /* PictureEntity.m */; };
+		7FC76E2D1C2BBD62005D8FF8 /* PictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC76E2B1C2BBD62005D8FF8 /* PictureTableViewCell.m */; };
+		7FC76E2E1C2BBD62005D8FF8 /* PictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC76E2C1C2BBD62005D8FF8 /* PictureTableViewCell.xib */; };
 		7FF5B8D21C20081900966ED9 /* ReadingEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8D11C20081900966ED9 /* ReadingEntity.m */; };
 		7FF5B8D61C202A6500966ED9 /* PicturevViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8D41C202A6500966ED9 /* PicturevViewController.m */; };
 		7FF5B8D71C202A6500966ED9 /* PicturevViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5B8D51C202A6500966ED9 /* PicturevViewController.xib */; };
-		7FF5B8E01C203CC200966ED9 /* PictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8DE1C203CC200966ED9 /* PictureTableViewCell.m */; };
-		7FF5B8E11C203CC200966ED9 /* PictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5B8DF1C203CC200966ED9 /* PictureTableViewCell.xib */; };
 		7FF5B8EF1C20624F00966ED9 /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8ED1C20624F00966ED9 /* QuestionTableViewCell.m */; };
 		7FF5B8F01C20624F00966ED9 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5B8EE1C20624F00966ED9 /* QuestionTableViewCell.xib */; };
 		7FF5B8F41C21080600966ED9 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8F21C21080600966ED9 /* QuestionViewController.m */; };
@@ -84,14 +85,16 @@
 		7F7F60571C1D8FA30039C1CF /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
 		7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7FC76E241C2BB55C005D8FF8 /* PictureEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureEntity.h; sourceTree = "<group>"; };
+		7FC76E251C2BB55C005D8FF8 /* PictureEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureEntity.m; sourceTree = "<group>"; };
+		7FC76E2A1C2BBD62005D8FF8 /* PictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureTableViewCell.h; sourceTree = "<group>"; };
+		7FC76E2B1C2BBD62005D8FF8 /* PictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureTableViewCell.m; sourceTree = "<group>"; };
+		7FC76E2C1C2BBD62005D8FF8 /* PictureTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureTableViewCell.xib; sourceTree = "<group>"; };
 		7FF5B8D01C20081900966ED9 /* ReadingEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingEntity.h; sourceTree = "<group>"; };
 		7FF5B8D11C20081900966ED9 /* ReadingEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingEntity.m; sourceTree = "<group>"; };
 		7FF5B8D31C202A6500966ED9 /* PicturevViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturevViewController.h; sourceTree = "<group>"; };
 		7FF5B8D41C202A6500966ED9 /* PicturevViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturevViewController.m; sourceTree = "<group>"; };
 		7FF5B8D51C202A6500966ED9 /* PicturevViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicturevViewController.xib; sourceTree = "<group>"; };
-		7FF5B8DD1C203CC200966ED9 /* PictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureTableViewCell.h; sourceTree = "<group>"; };
-		7FF5B8DE1C203CC200966ED9 /* PictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureTableViewCell.m; sourceTree = "<group>"; };
-		7FF5B8DF1C203CC200966ED9 /* PictureTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureTableViewCell.xib; sourceTree = "<group>"; };
 		7FF5B8EC1C20624F00966ED9 /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTableViewCell.h; sourceTree = "<group>"; };
 		7FF5B8ED1C20624F00966ED9 /* QuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionTableViewCell.m; sourceTree = "<group>"; };
 		7FF5B8EE1C20624F00966ED9 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
@@ -181,6 +184,11 @@
 				7FF5B8F11C21080600966ED9 /* QuestionViewController.h */,
 				7FF5B8F21C21080600966ED9 /* QuestionViewController.m */,
 				7FF5B8F31C21080600966ED9 /* QuestionViewController.xib */,
+				7FC76E241C2BB55C005D8FF8 /* PictureEntity.h */,
+				7FC76E251C2BB55C005D8FF8 /* PictureEntity.m */,
+				7FC76E2A1C2BBD62005D8FF8 /* PictureTableViewCell.h */,
+				7FC76E2B1C2BBD62005D8FF8 /* PictureTableViewCell.m */,
+				7FC76E2C1C2BBD62005D8FF8 /* PictureTableViewCell.xib */,
 			);
 			path = "IOS-Two";
 			sourceTree = "<group>";
@@ -189,9 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				7F03C50D1C0C5E380001F097 /* main.m */,
-				7FF5B8DD1C203CC200966ED9 /* PictureTableViewCell.h */,
-				7FF5B8DE1C203CC200966ED9 /* PictureTableViewCell.m */,
-				7FF5B8DF1C203CC200966ED9 /* PictureTableViewCell.xib */,
 				7FF5B8EC1C20624F00966ED9 /* QuestionTableViewCell.h */,
 				7FF5B8ED1C20624F00966ED9 /* QuestionTableViewCell.m */,
 				7FF5B8EE1C20624F00966ED9 /* QuestionTableViewCell.xib */,
@@ -328,7 +333,7 @@
 				7FF5B8D71C202A6500966ED9 /* PicturevViewController.xib in Resources */,
 				7FB16DA51C0F0D3B005BFC0F /* Default-568h@2x.png in Resources */,
 				7FF5B8F01C20624F00966ED9 /* QuestionTableViewCell.xib in Resources */,
-				7FF5B8E11C203CC200966ED9 /* PictureTableViewCell.xib in Resources */,
+				7FC76E2E1C2BBD62005D8FF8 /* PictureTableViewCell.xib in Resources */,
 				7F7F60471C1D5A790039C1CF /* SettingTableViewController.xib in Resources */,
 				7FF5B8F51C21080600966ED9 /* QuestionViewController.xib in Resources */,
 				7F7F60591C1D8FA30039C1CF /* PictureViewController.xib in Resources */,
@@ -362,9 +367,10 @@
 				7FF5B8D21C20081900966ED9 /* ReadingEntity.m in Sources */,
 				7F03C5141C0C5E380001F097 /* ViewController.m in Sources */,
 				7F7F604B1C1D74C90039C1CF /* AboutViewController.m in Sources */,
+				7FC76E2D1C2BBD62005D8FF8 /* PictureTableViewCell.m in Sources */,
 				7F03C5111C0C5E380001F097 /* AppDelegate.m in Sources */,
 				7FF5B8D61C202A6500966ED9 /* PicturevViewController.m in Sources */,
-				7FF5B8E01C203CC200966ED9 /* PictureTableViewCell.m in Sources */,
+				7FC76E261C2BB55C005D8FF8 /* PictureEntity.m in Sources */,
 				7F7F60581C1D8FA30039C1CF /* PictureViewController.m in Sources */,
 				7F7F60461C1D5A790039C1CF /* SettingTableViewController.m in Sources */,
 				7F03C50E1C0C5E380001F097 /* main.m in Sources */,
