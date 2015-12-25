@@ -96,9 +96,18 @@ int PictrueNo = 1;
     if ([AppDelegate getIsNight]) {
         self.view.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
         self.ContentWebView.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        UIColor * color = [UIColor colorWithRed:0xD0/255.0 green:0xD0/255.0 blue:0xD0/255.0 alpha:1];
+        NSDictionary * dict=[NSDictionary dictionaryWithObject:color forKey:UITextAttributeTextColor];
+        self.navigationController.navigationBar.titleTextAttributes = dict;
+
     } else {
         self.view.backgroundColor = [UIColor whiteColor];
         self.ContentWebView.backgroundColor = [UIColor whiteColor];
+        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+        NSDictionary * dict=[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
+        self.navigationController.navigationBar.titleTextAttributes = dict;
+
     }
     
     

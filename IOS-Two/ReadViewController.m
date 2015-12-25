@@ -98,9 +98,11 @@ int No = 1;
         backgroundColor = @"3C3C3C";
         charactersColor = @"D0D0D0";
         self.webview.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
-        
         self.view.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
-        self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        UIColor * color = [UIColor colorWithRed:0xD0/255.0 green:0xD0/255.0 blue:0xD0/255.0 alpha:1];
+        NSDictionary * dict=[NSDictionary dictionaryWithObject:color forKey:UITextAttributeTextColor];
+        self.navigationController.navigationBar.titleTextAttributes = dict;
         
     }
     else {
@@ -108,6 +110,10 @@ int No = 1;
         charactersColor = @"333333";
         self.webview.backgroundColor = [UIColor whiteColor];
         self.view.backgroundColor = [UIColor whiteColor];
+        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+        NSDictionary * dict=[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
+        self.navigationController.navigationBar.titleTextAttributes = dict;
+
     }
 
     [self.Zan setImage:[UIImage imageNamed:@"Image"] forState:UIControlStateNormal];

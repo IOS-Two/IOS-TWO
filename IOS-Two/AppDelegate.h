@@ -17,5 +17,6 @@
 +(CGFloat)getwidth;
 +(BOOL)getIsNight;
 +(void)setIsNight: (BOOL)mode;
+
 @end
 

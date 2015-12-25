@@ -52,14 +52,24 @@
     BOOL isButtonOn = [switchButton isOn];
     if (isButtonOn) {
         [AppDelegate setIsNight:true];
-         self.tableView.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        self.tableView.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        UIColor * color = [UIColor colorWithRed:0xD0/255.0 green:0xD0/255.0 blue:0xD0/255.0 alpha:1];
+        NSDictionary * dict=[NSDictionary dictionaryWithObject:color forKey:UITextAttributeTextColor];
+        self.navigationController.navigationBar.titleTextAttributes = dict;
         [self.tableView reloadData];
-//        [self viewDidLoad];
+        
+
     } else {
         [AppDelegate setIsNight:false];
         self.tableView.backgroundColor = [UIColor whiteColor];
+        self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
+        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+        NSDictionary * dict=[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
+        self.navigationController.navigationBar.titleTextAttributes = dict;
         [self.tableView reloadData];
-//        [self viewDidLoad];
+
     }
 }
 
@@ -87,7 +97,8 @@
     
     if ([AppDelegate getIsNight]) {
         self.tableView.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
-    } else {
+    }
+    else {
         self.tableView.backgroundColor = [UIColor whiteColor];
     }
     // Uncomment the following line to preserve selection between presentations.
@@ -173,9 +184,11 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([AppDelegate getIsNight]) {
         cell.backgroundColor =[UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        cell.textLabel.textColor = [UIColor colorWithRed:0xD0/255.0 green:0xD0/255.0 blue:0xD0/255.0 alpha:1];
         cell.contentView.backgroundColor =[UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
     } else {
         cell.backgroundColor = [UIColor whiteColor];
+        cell.textLabel.textColor = [UIColor blackColor];
         cell.contentView.backgroundColor = [UIColor whiteColor];
     }
 }
