@@ -22,6 +22,10 @@
 bool isDianZan = false;
 int No = 1;
 
+-(void) viewWillAppear:(BOOL)animated {
+    [self viewDidLoad];
+}
+
 -(void) saveReading:(ReadingEntity *)reading {
     NSString * temp = [NSString stringWithFormat:@"Reading%d.archive" , reading.No];
     NSString *homePath = NSHomeDirectory();
@@ -88,6 +92,24 @@ int No = 1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSString *backgroundColor;
+    NSString *charactersColor;
+    if ([AppDelegate getIsNight]) {
+        backgroundColor = @"3C3C3C";
+        charactersColor = @"D0D0D0";
+        self.webview.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        
+        self.view.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        
+    }
+    else {
+        backgroundColor = @"FFFFFF";
+        charactersColor = @"333333";
+        self.webview.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
+
     [self.Zan setImage:[UIImage imageNamed:@"Image"] forState:UIControlStateNormal];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"前一天" style:UIBarButtonItemStylePlain target:self action:@selector(Forward)];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"后一天" style:UIBarButtonItemStylePlain target:self action:@selector(Backward)];
@@ -126,11 +148,11 @@ int No = 1;
         reading = [self decodeReading:No path:path];
     }
    
-    self.webview.backgroundColor = [UIColor whiteColor];
     NSMutableString *HTMLContent = [[NSMutableString alloc] init];
     NSString *content = [reading ReadingContent];
-    [HTMLContent appendString:[NSString stringWithFormat:@"<!-- 文章标题 --><p style=\"color: %@; font-size: 21px; font-weight: bold; margin-top: 0px; margin-left: 15px;\">%@</p>", @"#333333", @"你别来客栈"]];
-    [HTMLContent appendString:[NSString stringWithFormat:@"<!-- 文章内容 --><div style=\"line-height: 26px; margin-top: 15px; margin-left: 15px; margin-right: 15px; color: %@; font-size: 16px;\">%@</div>", @"#888888", content]];
+    [HTMLContent appendString:[NSString stringWithFormat:@"<body bgcolor=\"%@\">", backgroundColor]];
+    [HTMLContent appendString:[NSString stringWithFormat:@"<!-- 文章标题 --><body><p style=\"color: %@; font-size: 21px; font-weight: bold; margin-top: 0px; margin-left: 15px;\">%@</p>", charactersColor, @"你别来客栈"]];
+    [HTMLContent appendString:[NSString stringWithFormat:@"<!-- 文章内容 --><div style=\"line-height: 26px; margin-top: 15px; margin-left: 15px; margin-right: 15px; color: %@; font-size: 16px;\">%@</div></body>", charactersColor, content]];
     
     [self.webview loadHTMLString:HTMLContent baseURL:nil];
     

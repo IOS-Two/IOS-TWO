@@ -15,5 +15,7 @@
 +(void)setWho:(int) co;
 +(int)getTotalVol;
 +(CGFloat)getwidth;
++(BOOL)getIsNight;
++(void)setIsNight: (BOOL)mode;
 @end
 

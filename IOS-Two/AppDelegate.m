@@ -10,13 +10,13 @@
 #import "ViewController.h"
 #import "ReadViewController.h"
 #import "PictureViewController.h"
-#import "PicturevViewController.h"
 #import "SettingTableViewController.h"
 #import "QuestionViewController.h"
 
 static int who;
 static int TotalVol;
 static CGFloat width;
+static BOOL isNight;
 
 @interface AppDelegate ()
 
@@ -40,13 +40,21 @@ static CGFloat width;
     who = co;
 }
 
++(BOOL)getIsNight {
+    return isNight;
+}
+
++(void)setIsNight: (BOOL)mode {
+    isNight = mode;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     width = [[UIScreen mainScreen] bounds].size.width;
     UITabBarController *rootTabBarController = [[UITabBarController alloc] init];
     who = 0;
-    
+    isNight = false;
     NSString *data1 = @"http://localhost:8080/IosService/TotalVol";
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:data1]];
     NSError * error = nil;

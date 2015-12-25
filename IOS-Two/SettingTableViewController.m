@@ -51,11 +51,16 @@
     UISwitch *switchButton = (UISwitch*)sender;
     BOOL isButtonOn = [switchButton isOn];
     if (isButtonOn) {
-       
+        [AppDelegate setIsNight:true];
+         self.tableView.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        [self.tableView reloadData];
+//        [self viewDidLoad];
     } else {
-       
+        [AppDelegate setIsNight:false];
+        self.tableView.backgroundColor = [UIColor whiteColor];
+        [self.tableView reloadData];
+//        [self viewDidLoad];
     }
-
 }
 
 - (void)viewDidLoad {
@@ -71,6 +76,8 @@
         [self.JiangOn setOn:YES];
         [self.GeOn setOn:NO];
     }
+    
+    
     [self.JiangOn addTarget:self action:@selector(JiangSwitch:) forControlEvents:UIControlEventValueChanged];
     [self.GeOn addTarget:self action:@selector(GeSwitch:) forControlEvents:UIControlEventValueChanged];
     [self.NightSwtich addTarget:self action:@selector(NightSwitchAction:) forControlEvents:UIControlEventValueChanged];
@@ -78,6 +85,11 @@
     self.Items = [[NSMutableArray alloc] initWithObjects:@"葛泽凡", @"江晨舟", @"夜间模式", nil];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
+    if ([AppDelegate getIsNight]) {
+        self.tableView.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+    } else {
+        self.tableView.backgroundColor = [UIColor whiteColor];
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -154,10 +166,19 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     }
-    return cell;
+        return cell;
 
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([AppDelegate getIsNight]) {
+        cell.backgroundColor =[UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        cell.contentView.backgroundColor =[UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+    } else {
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.contentView.backgroundColor = [UIColor whiteColor];
+    }
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -201,7 +222,6 @@
     if (indexPath.section == 1 ) {
         if ([indexPath row] == 0) {
             AboutViewController *AboutView = [[AboutViewController alloc] init];
-//            UINavigationController *AboutNav = [[UINavigationController alloc] initWithRootViewController:AboutView];
             AboutView.navigationItem.title = @"关于";
             [self.navigationController pushViewController:AboutView animated:YES];
         }

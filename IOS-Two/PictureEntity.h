@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface PictureEntity : NSObject
 @property NSString *PictureDes;
 @property int No;
 @property NSData *ImageContent;
 @property NSString *Recommender;
 @property NSString *Author;
+@property float height;
+@property float width;
+
 @end

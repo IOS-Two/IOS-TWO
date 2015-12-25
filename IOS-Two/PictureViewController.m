@@ -16,15 +16,15 @@
 @end
 
 @implementation PictureViewController
+int PictrueNo = 1;
 
--(void) savePictrue:(PictureEntity *)picture {
-    NSString * temp = [NSString stringWithFormat:@"Reading%d.archive" , picture.No];
-    NSString *homePath = NSHomeDirectory();
-    NSString *path = [homePath stringByAppendingPathComponent:temp];
-    
+-(void) viewWillAppear:(BOOL)animated {
+    [self viewDidLoad];
+}
+
+-(void) savePictrue:(PictureEntity *)picture path:(NSString*)path {
     BOOL sucess = [NSKeyedArchiver archiveRootObject:picture toFile:path];
-    if (sucess)
-    {
+    if (sucess) {
         NSLog(@"archive sucess");
     }
 }
@@ -36,12 +36,13 @@
 }
 
 
-- (NSString *)htmlForJPGImage:(UIImage *)image
-{
-    CGFloat imageWidth = image.size.width;
-    CGFloat imageHeight = image.size.height;
+- (NSString *)htmlForJPGImage:(PictureEntity*)picture {
+    CGFloat imageWidth = [picture width];
+    CGFloat imageHeight = [picture height];
     CGFloat p = imageHeight / imageWidth;
-    NSData *imageData = UIImageJPEGRepresentation(image,1.0);
+
+    UIImage* result = (UIImage*)[picture ImageContent];
+    NSData *imageData = UIImageJPEGRepresentation(result,1.0);
     NSString *imageSource = [NSString stringWithFormat:@"data:image/jpg;base64,%@",[imageData base64Encoding]];
     CGFloat width = [AppDelegate getwidth] - 30;
     CGFloat height = width * p;
@@ -49,55 +50,123 @@
             , width];
 }
 
-
-- (void) Completed:(NSURL *)location URLResponse:(NSURLResponse *)response Error:(NSError *)error {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    if (error == nil) {
-        UIImage *downloadedImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSString *stringImage = [self htmlForJPGImage:downloadedImage];
-            NSString *HTMLTitle = [NSString stringWithFormat:@"<!-- 文章标题 --><p style=\"color: %@; font-size: 21px; font-weight: bold; margin-top: 20px; margin-left: 0px;\">%@</p>", @"#333333", @"你别来客栈"];
-            NSString *HTMLContent =  [NSString stringWithFormat:@"<!-- 文章内容 --><div style=\"line-height: 26px; margin-top: 10px; margin-left: 0px; margin-right: 15px; color: %@; font-size: 16px;\">%@</div>", @"#888888", @"咱们家美美哒智孝欧尼~~~"];
-                        //构造内容
-            NSString *contentImg = [NSString stringWithFormat:@"<p style=\" font-size: 21px; font-weight: bold; margin-top: 20px; margin-left: 0px; margin-left: 0px;\">%@</p>", stringImage];
-            NSString *content =[NSString stringWithFormat:
-                                @"<html>"
-                                "<style type=\"text/css\">"
-                                "<!--"
-                                "body{font-size:40pt;line-height:60pt;}"
-                                "-->"
-                                "</style>"
-                                "<body>"
-                                "%@"
-                                "%@"
-                                "%@"
-                                "</body>"
-                                "</html>"
-                                ,@"Vol.1"
-                                ,contentImg
-                                , HTMLContent];
-            
-            //让self.contentWebView加载content
-            [self.ContentWebView loadHTMLString:content baseURL:nil];
-        });
-    } else {
-        NSLog(@"Error");
+- (void) configureWebViewContent:(PictureEntity*) picture {
+    NSString *backgroundColor;
+    NSString *charactersColor;
+    if ([AppDelegate getIsNight]) {
+        backgroundColor = @"3C3C3C";
+        charactersColor = @"D0D0D0";
     }
-}
+    else {
+        backgroundColor = @"FFFFFF";
+        charactersColor = @"333333";
+    }
+    NSString *stringImage = [self htmlForJPGImage:picture];
+    NSString *title = [NSString stringWithFormat:@"Vol.%d", PictrueNo];
+    NSString *des = [picture PictureDes];
+    NSString *HTMLTitle = [NSString stringWithFormat:@"<p style=\"color: %@; font-size: 21px; font-weight: bold; margin-top: 20px; margin-left: 0px;\">%@</p>", charactersColor, title];
+    NSString *HTMLContent =  [NSString stringWithFormat:@"<div style=\"line-height: 20px; margin-top: 10px; margin-left: 0px; margin-right: 15px; color: %@; font-size: 12px;\">%@</div>", charactersColor, des];
+    NSString *contentImg = [NSString stringWithFormat:@"<p style=\"  font-size: 14px; font-weight: bold; margin-top: 20px; margin-left: 0px; margin-left: 0px;\">%@</p>",stringImage];
+    NSString *HTMLAuthor =  [NSString stringWithFormat:@"<div style=\"line-height: 6px; margin-top: 0px; margin-left: 0px; text-align: right ;margin-right: 15px; color: %@; font-size: 12px;\">%@</div>", charactersColor, [picture Author]];
 
+    NSString *content =[NSString stringWithFormat:
+                        @"<html>"
+                        "<body bgcolor=\"%@\">"
+                        "<body>"
+                        "%@"
+                        "%@"
+                        "%@"
+                        "%@"
+                        "</body>"
+                        "</html>"
+                        ,backgroundColor
+                        ,HTMLTitle
+                        ,contentImg
+                        , HTMLContent
+                        , HTMLAuthor];
+    
+    //让self.contentWebView加载content
+    [self.ContentWebView loadHTMLString:content baseURL:nil];
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.ContentWebView.backgroundColor = [UIColor whiteColor];
-    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/IosService/haha.jpg"];
-    NSURLSessionDownloadTask *downloadPhotoTask =[[NSURLSession sharedSession]
-                                                  downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-                                                      [self Completed:location URLResponse:response Error:error];
-                                                  }];
+    if ([AppDelegate getIsNight]) {
+        self.view.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        self.ContentWebView.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+        self.ContentWebView.backgroundColor = [UIColor whiteColor];
+    }
     
-    [downloadPhotoTask resume];
+    
+    PictureEntity *picture = [[PictureEntity alloc] init];
+    NSString * temp;
+    NSString * who;
+    if ([AppDelegate instanceWho] == 0) {
+        temp = [NSString stringWithFormat:@"Picture%dg.archive" ,PictrueNo];
+        who = @"g";
+    }
+    else {
+        temp = [NSString stringWithFormat:@"Picture%dj.archive" ,PictrueNo];
+        who = @"j";
+    }
+
+    NSString *homePath = NSHomeDirectory();
+    NSString *path = [homePath stringByAppendingPathComponent:temp];
+    if ([NSKeyedUnarchiver unarchiveObjectWithFile:path] == nil) {
+        
+        NSString *data1 = @"http://localhost:8080/IosService/Picture";
+        data1 = [data1 stringByAppendingString:@"?date="];
+        data1 = [data1 stringByAppendingString:[NSString stringWithFormat:@"%d", PictrueNo]];
+        data1 = [data1 stringByAppendingString:[NSString stringWithFormat:@"&who=%@", who]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:data1]];
+        NSError * error = nil;
+        
+        NSURLResponse *response=nil;
+        NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                              returningResponse:&response
+                                                          error:&error];
+        id JsonObj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSDictionary *jsonDictionary = (NSDictionary*)JsonObj;
+        
+        
+        NSURL *url = [NSURL URLWithString:[[jsonDictionary valueForKey:@"url"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSString *picturedes =[[jsonDictionary valueForKey:@"describtion"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *recommender = [[jsonDictionary valueForKey:@"recommender"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *author = [[jsonDictionary valueForKey:@"author"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSURLSessionDownloadTask *downloadPhotoTask =[[NSURLSession sharedSession]
+                                                      downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+                                                          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                                                          if (error == nil) {
+                                                              UIImage *downloadedImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
+                                                              dispatch_async(dispatch_get_main_queue(), ^{
+                                                                  [picture setPictureDes:picturedes];
+                                                                  [picture setRecommender:recommender];
+                                                                  [picture setAuthor:author];
+                                                                  [picture setNo:PictrueNo];
+                                                                  [picture setHeight:downloadedImage.size.height];
+                                                                  [picture setWidth:downloadedImage.size.width];
+                                                                  [picture setImageContent:(NSData*)downloadedImage];
+                                                                  
+                                                                  [self configureWebViewContent:picture];
+                                                                  [self savePictrue:picture path:path];
+                                                              });
+                                                          } else {
+                                                              NSLog(@"Error");
+                                                          }
+
+                                                          
+                                                      }];
+        
+        [downloadPhotoTask resume];
+    }
+    else {
+        picture = [self decodePicture:PictrueNo path:path];
+        [self configureWebViewContent:picture];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

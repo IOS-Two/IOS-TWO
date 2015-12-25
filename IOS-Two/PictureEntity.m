@@ -14,6 +14,9 @@
 @synthesize PictureDes = _PictureDes;
 @synthesize Recommender= _Recommender;
 @synthesize Author = _Author;
+@synthesize height = _height;
+@synthesize width = _width;
+
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
     if(self=[super init]){
@@ -22,6 +25,9 @@
         self.PictureDes=[aDecoder decodeObjectForKey:@"des"];
         self.No=[aDecoder decodeIntForKey:@"No"];
         self.Recommender=[aDecoder decodeObjectForKey:@"recommender"];
+        self.height=[aDecoder decodeFloatForKey:@"height"];
+        self.width=[aDecoder decodeFloatForKey:@"width"];
+       
     }
     return self;
 }
@@ -32,6 +38,9 @@
     [aCoder encodeInt:self.No forKey:@"No"];
     [aCoder encodeObject:self.Recommender forKey:@"recommender"];
     [aCoder encodeObject:self.PictureDes forKey:@"des"];
+    [aCoder encodeFloat:self.height forKey:@"height"];
+    [aCoder encodeFloat:self.width forKey:@"width"];
+   
 }
 
 @end
