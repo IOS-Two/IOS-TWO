@@ -26,6 +26,10 @@
 		7FB16DA51C0F0D3B005BFC0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */; };
 		7FB16DA71C0F107E005BFC0F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */; };
 		7FF142F31C4FCD740046B709 /* ReadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF142F21C4FCD740046B709 /* ReadingView.m */; };
+		7FF142F91C4FD5560046B709 /* QuestionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF142F81C4FD5560046B709 /* QuestionEntity.m */; };
+		7FF142FC1C50995C0046B709 /* HttpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF142FB1C50995C0046B709 /* HttpOperation.m */; };
+		7FF143021C509C530046B709 /* QuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF143011C509C530046B709 /* QuestionView.m */; };
+		7FF143051C509C630046B709 /* PictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF143041C509C630046B709 /* PictureView.m */; };
 		7FF5B8D21C20081900966ED9 /* ReadingEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8D11C20081900966ED9 /* ReadingEntity.m */; };
 		7FF5B8F41C21080600966ED9 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8F21C21080600966ED9 /* QuestionViewController.m */; };
 		7FF5B8F51C21080600966ED9 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5B8F31C21080600966ED9 /* QuestionViewController.xib */; };
@@ -82,6 +86,14 @@
 		7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7FF142F11C4FCD740046B709 /* ReadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingView.h; sourceTree = "<group>"; };
 		7FF142F21C4FCD740046B709 /* ReadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingView.m; sourceTree = "<group>"; };
+		7FF142F71C4FD5560046B709 /* QuestionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionEntity.h; sourceTree = "<group>"; };
+		7FF142F81C4FD5560046B709 /* QuestionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionEntity.m; sourceTree = "<group>"; };
+		7FF142FA1C50995C0046B709 /* HttpOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpOperation.h; sourceTree = "<group>"; };
+		7FF142FB1C50995C0046B709 /* HttpOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpOperation.m; sourceTree = "<group>"; };
+		7FF143001C509C530046B709 /* QuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionView.h; sourceTree = "<group>"; };
+		7FF143011C509C530046B709 /* QuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionView.m; sourceTree = "<group>"; };
+		7FF143031C509C630046B709 /* PictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureView.h; sourceTree = "<group>"; };
+		7FF143041C509C630046B709 /* PictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureView.m; sourceTree = "<group>"; };
 		7FF5B8D01C20081900966ED9 /* ReadingEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingEntity.h; sourceTree = "<group>"; };
 		7FF5B8D11C20081900966ED9 /* ReadingEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingEntity.m; sourceTree = "<group>"; };
 		7FF5B8F11C21080600966ED9 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
@@ -142,6 +154,9 @@
 		7F03C50B1C0C5E380001F097 /* IOS-Two */ = {
 			isa = PBXGroup;
 			children = (
+				7FF142F61C4FD4DC0046B709 /* View */,
+				7FF142F51C4FD4A80046B709 /* Controller */,
+				7FF142F41C4FD4840046B709 /* Model */,
 				7F03C50F1C0C5E380001F097 /* AppDelegate.h */,
 				7F03C5101C0C5E380001F097 /* AppDelegate.m */,
 				7F03C5121C0C5E380001F097 /* ViewController.h */,
@@ -150,26 +165,6 @@
 				7F03C51D1C0C5E380001F097 /* Info.plist */,
 				7F03C50C1C0C5E380001F097 /* Supporting Files */,
 				7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */,
-				7F3654581C12AD35003A2F02 /* ReadViewController.h */,
-				7F3654591C12AD35003A2F02 /* ReadViewController.m */,
-				7F7F60431C1D5A790039C1CF /* SettingTableViewController.h */,
-				7F7F60441C1D5A790039C1CF /* SettingTableViewController.m */,
-				7F7F60451C1D5A790039C1CF /* SettingTableViewController.xib */,
-				7F7F60481C1D74C90039C1CF /* AboutViewController.h */,
-				7F7F60491C1D74C90039C1CF /* AboutViewController.m */,
-				7F7F604A1C1D74C90039C1CF /* AboutViewController.xib */,
-				7F7F60551C1D8FA30039C1CF /* PictureViewController.h */,
-				7F7F60561C1D8FA30039C1CF /* PictureViewController.m */,
-				7F7F60571C1D8FA30039C1CF /* PictureViewController.xib */,
-				7FF5B8D01C20081900966ED9 /* ReadingEntity.h */,
-				7FF5B8D11C20081900966ED9 /* ReadingEntity.m */,
-				7FF5B8F11C21080600966ED9 /* QuestionViewController.h */,
-				7FF5B8F21C21080600966ED9 /* QuestionViewController.m */,
-				7FF5B8F31C21080600966ED9 /* QuestionViewController.xib */,
-				7F5C52011C2BD45700409482 /* PictureEntity.h */,
-				7F5C52021C2BD45700409482 /* PictureEntity.m */,
-				7FF142F11C4FCD740046B709 /* ReadingView.h */,
-				7FF142F21C4FCD740046B709 /* ReadingView.m */,
 			);
 			path = "IOS-Two";
 			sourceTree = "<group>";
@@ -198,6 +193,55 @@
 				7F03C5331C0C5E380001F097 /* Info.plist */,
 			);
 			path = "IOS-TwoUITests";
+			sourceTree = "<group>";
+		};
+		7FF142F41C4FD4840046B709 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C52021C2BD45700409482 /* PictureEntity.m */,
+				7F5C52011C2BD45700409482 /* PictureEntity.h */,
+				7FF5B8D01C20081900966ED9 /* ReadingEntity.h */,
+				7FF5B8D11C20081900966ED9 /* ReadingEntity.m */,
+				7FF142F71C4FD5560046B709 /* QuestionEntity.h */,
+				7FF142F81C4FD5560046B709 /* QuestionEntity.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7FF142F51C4FD4A80046B709 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7F3654581C12AD35003A2F02 /* ReadViewController.h */,
+				7F3654591C12AD35003A2F02 /* ReadViewController.m */,
+				7F7F60431C1D5A790039C1CF /* SettingTableViewController.h */,
+				7F7F60441C1D5A790039C1CF /* SettingTableViewController.m */,
+				7F7F60451C1D5A790039C1CF /* SettingTableViewController.xib */,
+				7F7F60481C1D74C90039C1CF /* AboutViewController.h */,
+				7F7F60491C1D74C90039C1CF /* AboutViewController.m */,
+				7F7F604A1C1D74C90039C1CF /* AboutViewController.xib */,
+				7F7F60551C1D8FA30039C1CF /* PictureViewController.h */,
+				7F7F60561C1D8FA30039C1CF /* PictureViewController.m */,
+				7F7F60571C1D8FA30039C1CF /* PictureViewController.xib */,
+				7FF5B8F11C21080600966ED9 /* QuestionViewController.h */,
+				7FF5B8F21C21080600966ED9 /* QuestionViewController.m */,
+				7FF5B8F31C21080600966ED9 /* QuestionViewController.xib */,
+				7FF142FA1C50995C0046B709 /* HttpOperation.h */,
+				7FF142FB1C50995C0046B709 /* HttpOperation.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7FF142F61C4FD4DC0046B709 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7FF142F21C4FCD740046B709 /* ReadingView.m */,
+				7FF142F11C4FCD740046B709 /* ReadingView.h */,
+				7FF143001C509C530046B709 /* QuestionView.h */,
+				7FF143011C509C530046B709 /* QuestionView.m */,
+				7FF143031C509C630046B709 /* PictureView.h */,
+				7FF143041C509C630046B709 /* PictureView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,10 +379,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF143051C509C630046B709 /* PictureView.m in Sources */,
+				7FF143021C509C530046B709 /* QuestionView.m in Sources */,
 				7F5C52031C2BD45700409482 /* PictureEntity.m in Sources */,
 				7F36545B1C12AD35003A2F02 /* ReadViewController.m in Sources */,
 				7FF5B8F41C21080600966ED9 /* QuestionViewController.m in Sources */,
 				7FF142F31C4FCD740046B709 /* ReadingView.m in Sources */,
+				7FF142F91C4FD5560046B709 /* QuestionEntity.m in Sources */,
+				7FF142FC1C50995C0046B709 /* HttpOperation.m in Sources */,
 				7FF5B8D21C20081900966ED9 /* ReadingEntity.m in Sources */,
 				7F03C5141C0C5E380001F097 /* ViewController.m in Sources */,
 				7F7F604B1C1D74C90039C1CF /* AboutViewController.m in Sources */,

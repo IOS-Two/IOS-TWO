@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReadingEntity.h"
 
 @interface ReadingView : UIView
+
+-(void)ConfigureReadingContent:(ReadingEntity*)reading BackC:(NSString*)backgroundColor CharC:(NSString*)
+    charactersColor;
+
 
 @end
