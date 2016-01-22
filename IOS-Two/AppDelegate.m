@@ -48,6 +48,16 @@ static BOOL isNight;
     isNight = mode;
 }
 
++(NSString*)getRecommender {
+    NSString* who;
+    if ([AppDelegate instanceWho] == 0) {
+        who = @"g";
+    }
+    else {
+        who = @"j";
+    }
+    return who;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

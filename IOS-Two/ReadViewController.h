@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ReadViewController : UIViewController
+//@property (nonatomic, strong) UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
+//@property (nonatomic, strong) UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
 
 @end

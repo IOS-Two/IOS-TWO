@@ -17,39 +17,59 @@
 
 @end
 
+static BOOL RecommenderIsSwitch = false;
+static BOOL NightModeIsSwitch = false;
+
 @implementation SettingTableViewController
+
++(BOOL)getRecommenderIsSwitch {
+    return RecommenderIsSwitch;
+}
+
++(BOOL)getNightModeIsSwitch {
+    return NightModeIsSwitch;
+}
+
++(void)setRecommenderIsSwitch:(BOOL)a {
+    RecommenderIsSwitch = a;
+}
+
++(void)setNightModeIsSwitch:(BOOL)a {
+    NightModeIsSwitch = a;
+}
 
 - (void)JiangSwitch:(id)sender {
     UISwitch *switchButton = (UISwitch*)sender;
     BOOL isButtonOn = [switchButton isOn];
+    RecommenderIsSwitch = true;
     if (isButtonOn) {
         [self.GeOn setOn:NO animated:YES];
         [AppDelegate setWho:1];
-        NSLog(@"%d", [AppDelegate instanceWho]);
     } else {
         [self.GeOn setOn:YES animated:YES];
         [AppDelegate setWho:0];
-        NSLog(@"%d", [AppDelegate instanceWho]);
     }
 }
 
 - (void)GeSwitch:(id)sender {
     UISwitch *switchButton = (UISwitch*)sender;
     BOOL isButtonOn = [switchButton isOn];
+    RecommenderIsSwitch = true;
     if (isButtonOn) {
         [self.JiangOn setOn:NO animated:YES];
         [AppDelegate setWho:0];
-        NSLog(@"%d", [AppDelegate instanceWho]);
+//        NSLog(@"%d", [AppDelegate instanceWho]);
     } else {
         [self.JiangOn setOn:YES animated:YES];
         [AppDelegate setWho:1];
-        NSLog(@"%d", [AppDelegate instanceWho]);
+//        NSLog(@"%d", [AppDelegate instanceWho]);
     }
 }
 
 - (void)NightSwitchAction:(id)sender {
     UISwitch *switchButton = (UISwitch*)sender;
     BOOL isButtonOn = [switchButton isOn];
+    NightModeIsSwitch = true;
     if (isButtonOn) {
         [AppDelegate setIsNight:true];
         self.tableView.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];

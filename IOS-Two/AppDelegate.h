@@ -17,6 +17,7 @@
 +(CGFloat)getwidth;
 +(BOOL)getIsNight;
 +(void)setIsNight: (BOOL)mode;
++(NSString*)getRecommender;
 
 @end
 
