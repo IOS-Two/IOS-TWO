@@ -209,7 +209,7 @@
     self.readingView = [[ReadingView alloc] initWithFrame:CGRectMake(0, 70, mainrect.size.width, mainrect.size.height)];
     [self.readingView ConfigureReadingContent:reading BackC:backgroundColor CharC:charactersColor];
     //[self.view addSubview:self.readingView];
-    [self.view insertSubview:self.readingView atIndex:0];
+    [self.view addSubview:self.readingView];
 
 }
 

@@ -8,21 +8,138 @@
 
 #import "QuestionViewController.h"
 #import "AppDelegate.h"
+#import "QuestionEntity.h"
+#import "QuestionView.h"
+#import "HttpOperation.h"
+#import "SettingTableViewController.h"
 
 @interface QuestionViewController ()
-@property (strong, nonatomic) IBOutlet UIWebView *Content;
+@property (strong, nonatomic) QuestionView* questionView;
+@property int No;
 
 @end
 
 @implementation QuestionViewController
 
 -(void) viewWillAppear:(BOOL)animated {
-    [self viewDidLoad];
+    if ([SettingTableViewController getNightModeIsSwitch]) {
+        [SettingTableViewController setNightModeIsSwitch:false];
+        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        [self viewDidLoad];
+    }
+    else if([SettingTableViewController getRecommenderIsSwitch]) {
+        [SettingTableViewController setRecommenderIsSwitch:false];
+        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        [self viewDidLoad];
+    }
+
+    
 }
+
+-(void) saveQuestion:(QuestionEntity *)question {
+    NSString* who = [AppDelegate getRecommender];
+    NSString * temp = [NSString stringWithFormat:@"Question%d%@.archive" , question.No, who];
+    NSString *homePath = NSHomeDirectory();
+    NSString *path = [homePath stringByAppendingPathComponent:temp];
+    
+    BOOL sucess = [NSKeyedArchiver archiveRootObject:question toFile:path];
+    if (sucess)
+    {
+       
+    }
+}
+
+-(QuestionEntity*) decodeQuestion:(int)vol path:(NSString*)path{
+    QuestionEntity *Reading = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    //    NSLog(@"Read archive");
+    return Reading;
+}
+
+-(QuestionEntity*)loadQuestionContent:(int)No {
+    NSString* who = [AppDelegate getRecommender];
+    QuestionEntity *question = [[QuestionEntity alloc] init];
+    NSString * temp = [NSString stringWithFormat:@"Question%d%@.archive" ,No, who];
+    NSString *homePath = NSHomeDirectory();
+    NSString *path = [homePath stringByAppendingPathComponent:temp];
+    if ([NSKeyedUnarchiver unarchiveObjectWithFile:path] == nil) {
+        question = [HttpOperation RequestQuestionContent:No];
+        [self saveQuestion:question];
+    }
+    else {
+        question = [self decodeQuestion:No path:path];
+    }
+    return question;
+}
+
+-(void)RightLook {
+    if (self.No <= 1) {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"木有更多~" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alter show];
+    }
+    else {
+        [UIView beginAnimations:@"Curl" context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view cache:YES];
+        
+        self.No--;
+        NSString *backgroundColor;
+        NSString *charactersColor;
+        if ([AppDelegate getIsNight]) {
+            backgroundColor = @"3C3C3C";
+            charactersColor = @"D0D0D0";
+        }
+        else {
+            backgroundColor = @"FFFFFF";
+            charactersColor = @"333333";
+        }
+        QuestionEntity* question = [self loadQuestionContent:self.No];
+        CGRect mainrect = [[UIScreen mainScreen] bounds];
+        [self.questionView removeFromSuperview];
+        self.questionView = [[QuestionView alloc] initWithFrame:CGRectMake(0, 70, mainrect.size.width, mainrect.size.height)];
+        [self.questionView ConfigureQuestionContent:question BackC:backgroundColor CharC:charactersColor];
+        [self.view addSubview:self.questionView];
+        [UIView commitAnimations];
+    }
+}
+
+-(void)LeftLook {
+    if (self.No >= [AppDelegate getTotalVol]) {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"木有更多~" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alter show];
+    }
+    else {
+        [UIView beginAnimations:@"Curl" context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view cache:YES];
+        
+        self.No++;
+        NSString *backgroundColor;
+        NSString *charactersColor;
+        if ([AppDelegate getIsNight]) {
+            backgroundColor = @"3C3C3C";
+            charactersColor = @"D0D0D0";
+        }
+        else {
+            backgroundColor = @"FFFFFF";
+            charactersColor = @"333333";
+        }
+        QuestionEntity* question = [self loadQuestionContent:self.No];
+        CGRect mainrect = [[UIScreen mainScreen] bounds];
+        [self.questionView removeFromSuperview];
+        self.questionView = [[QuestionView alloc] initWithFrame:CGRectMake(0, 70, mainrect.size.width, mainrect.size.height)];
+        [self.questionView ConfigureQuestionContent:question BackC:backgroundColor CharC:charactersColor];
+        [self.view addSubview:self.questionView];
+        [UIView commitAnimations];
+    }
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.No = [AppDelegate getTotalVol];
     UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"←" style:UIBarButtonItemStylePlain target:self action:@selector(LeftLook)];
     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"→" style:UIBarButtonItemStylePlain target:self action:@selector(RightLook)];
     self.navigationItem.leftBarButtonItem = left;
@@ -33,8 +150,6 @@
     if ([AppDelegate getIsNight]) {
         backgroundColor = @"3C3C3C";
         charactersColor = @"D0D0D0";
-        self.Content.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
-        
         self.view.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
         self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
         UIColor * color = [UIColor colorWithRed:0xD0/255.0 green:0xD0/255.0 blue:0xD0/255.0 alpha:1];
@@ -45,7 +160,6 @@
     else {
         backgroundColor = @"FFFFFF";
         charactersColor = @"333333";
-        self.Content.backgroundColor = [UIColor whiteColor];
         self.view.backgroundColor = [UIColor whiteColor];
         self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
         NSDictionary * dict=[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
@@ -53,31 +167,25 @@
 
     }
 
-    NSString *data1 = @"http://localhost:8080/IosService/question";
-    data1 = [data1 stringByAppendingString:@"?date=1"];
+    NSString* who = [AppDelegate getRecommender];
+    QuestionEntity *question = [[QuestionEntity alloc] init];
+    NSString * temp = [NSString stringWithFormat:@"Question%d%@.archive" ,self.No, who];
+    NSString *homePath = NSHomeDirectory();
+    NSString *path = [homePath stringByAppendingPathComponent:temp];
+    if ([NSKeyedUnarchiver unarchiveObjectWithFile:path] == nil) {
+        question = [HttpOperation RequestQuestionContent:self.No];
+        [self saveQuestion:question];
+    }
+    else {
+        question = [self decodeQuestion:self.No path:path];
+    }
     
-    //data1 = [data1 stringByAppendingString:[NSString stringWithFormat:@"%d", 1]];
+    CGRect mainrect = [UIScreen mainScreen].bounds;
+    self.questionView = [[QuestionView alloc] initWithFrame:CGRectMake(0, 70, mainrect.size.width, mainrect.size.height)];
+    [self.questionView ConfigureQuestionContent:question BackC:backgroundColor CharC:charactersColor];
+    //[self.view addSubview:self.readingView];
+    [self.view addSubview:self.questionView];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:data1]];
-    NSError * error = nil;
-    
-    NSURLResponse *response=nil;
-    NSData * data = [NSURLConnection sendSynchronousRequest:request
-                                          returningResponse:&response
-                                                      error:&error];
-    if (error == nil) NSLog(@"success");
-    id JsonObj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    NSDictionary *jsonDictionary = (NSDictionary*)JsonObj;
-    NSString *desContent = [[jsonDictionary valueForKey:@"article"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSMutableString *HTMLContent = [[NSMutableString alloc] init];
-    //
-//    [HTMLContent appendString:[NSString stringWithFormat:@"<!-- 文章标题 --><p style=\"color: %@; font-size: 21px; font-weight: bold; margin-top: 0px; margin-left: 15px;\">%@</p>", @"#333333", @"你别来客栈"]];
-    [HTMLContent appendString:[NSString stringWithFormat:@"<body bgcolor=\"%@\">", backgroundColor]];
-    [HTMLContent appendString:[NSString stringWithFormat:@"<!-- vol --><div style=\"line-height: 26px; margin-top: 15px; margin-left: 15px; margin-right: 15px; color: %@; font-size: 12px;font-family:verdana;\">%@</div>", charactersColor, @"Vol.1"]];
-    [HTMLContent appendString:[NSString stringWithFormat:@"<!-- 文章内容 --><div style=\"line-height: 26px; margin-top: 15px; margin-left: 15px; margin-right: 15px; color: %@; font-size: 16px;font-family:SimHei;\">%@</div>", charactersColor, desContent]];
-    
-    [self.Content loadHTMLString:HTMLContent baseURL:nil];
-
 }
 
 - (void)didReceiveMemoryWarning {

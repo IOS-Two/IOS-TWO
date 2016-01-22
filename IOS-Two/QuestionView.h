@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QuestionEntity.h"
+
 
 @interface QuestionView : UIView
 
+-(void)ConfigureQuestionContent:(QuestionEntity*)Question BackC:(NSString*)backgroundColor CharC:(NSString*)
+    charactersColor;
 @end

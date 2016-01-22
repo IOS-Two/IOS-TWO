@@ -16,6 +16,8 @@
 @synthesize Author = _Author;
 @synthesize height = _height;
 @synthesize width = _width;
+@synthesize PicutureUrl = _PicutureUrl;
+@synthesize title = _title;
 
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
@@ -27,11 +29,14 @@
         self.Recommender=[aDecoder decodeObjectForKey:@"recommender"];
         self.height=[aDecoder decodeFloatForKey:@"height"];
         self.width=[aDecoder decodeFloatForKey:@"width"];
-       
+        self.PicutureUrl = [aDecoder decodeObjectForKey:@"url"];
+        self.title = [aDecoder decodeObjectForKey:@"title"];
+
     }
     return self;
 }
-//编码
+
+
 -(void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.ImageContent forKey:@"ImageContent"];
     [aCoder encodeObject:self.Author forKey:@"author"];
@@ -40,7 +45,8 @@
     [aCoder encodeObject:self.PictureDes forKey:@"des"];
     [aCoder encodeFloat:self.height forKey:@"height"];
     [aCoder encodeFloat:self.width forKey:@"width"];
-   
+    [aCoder encodeObject:self.PicutureUrl forKey:@"url"];
+    [aCoder encodeObject:self.title forKey:@"title"];
 }
 
 @end

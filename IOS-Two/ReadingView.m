@@ -42,8 +42,6 @@
 
 -(void)ConfigureReadingContent:(ReadingEntity*)reading BackC:(NSString*)backgroundColor CharC:(NSString*)
     charactersColor {
-    NSArray *sv = [NSArray arrayWithArray:[self.webview subviews]];
-    UIScrollView *webScroller = (UIScrollView *)[sv objectAtIndex:0];
     NSMutableString *HTMLContent = [[NSMutableString alloc] init];
     NSString *content = [reading ReadingContent];
     NSString* title = [reading ReadingTitle];

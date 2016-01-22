@@ -10,4 +10,9 @@
 
 @interface QuestionEntity : NSObject <NSCoding>
 
+
+@property int No;
+@property NSString *QuestionContent;
+@property NSString *Recommender;
+
 @end

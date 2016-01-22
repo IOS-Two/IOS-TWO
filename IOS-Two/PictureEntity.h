@@ -11,11 +11,12 @@
 
 @interface PictureEntity : NSObject
 @property NSString *PictureDes;
+@property NSString *title;
 @property int No;
 @property NSData *ImageContent;
 @property NSString *Recommender;
 @property NSString *Author;
 @property float height;
 @property float width;
-
+@property NSString* PicutureUrl;
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PictureEntity.h"
 @interface PictureView : UIView
-
+-(void)ConfigurePictureContent:(PictureEntity*)picture BackC:(NSString*)backgroundColor CharC:(NSString*)
+    charactersColor;
 @end

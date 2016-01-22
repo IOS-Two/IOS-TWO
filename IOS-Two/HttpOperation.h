@@ -10,10 +10,12 @@
 #import "ReadingEntity.h"
 #import "QuestionEntity.h"
 #import "PictureEntity.h"
+#import "PictureEntity.h"
 
 @interface HttpOperation : NSObject
 
 +(ReadingEntity*)RequestReadingContent:(int)No;
-+(QuestionEntity*)RequeatQuestionContent:(int)No;
++(QuestionEntity*)RequestQuestionContent:(int)No;
++(PictureEntity*)RequestPictureContent:(int)No;
 
 @end

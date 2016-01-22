@@ -22,7 +22,6 @@
 		7F7F604B1C1D74C90039C1CF /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F60491C1D74C90039C1CF /* AboutViewController.m */; };
 		7F7F604C1C1D74C90039C1CF /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7F604A1C1D74C90039C1CF /* AboutViewController.xib */; };
 		7F7F60581C1D8FA30039C1CF /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F60561C1D8FA30039C1CF /* PictureViewController.m */; };
-		7F7F60591C1D8FA30039C1CF /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7F60571C1D8FA30039C1CF /* PictureViewController.xib */; };
 		7FB16DA51C0F0D3B005BFC0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */; };
 		7FB16DA71C0F107E005BFC0F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */; };
 		7FF142F31C4FCD740046B709 /* ReadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF142F21C4FCD740046B709 /* ReadingView.m */; };
@@ -32,7 +31,6 @@
 		7FF143051C509C630046B709 /* PictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF143041C509C630046B709 /* PictureView.m */; };
 		7FF5B8D21C20081900966ED9 /* ReadingEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8D11C20081900966ED9 /* ReadingEntity.m */; };
 		7FF5B8F41C21080600966ED9 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5B8F21C21080600966ED9 /* QuestionViewController.m */; };
-		7FF5B8F51C21080600966ED9 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF5B8F31C21080600966ED9 /* QuestionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +79,6 @@
 		7F7F604A1C1D74C90039C1CF /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		7F7F60551C1D8FA30039C1CF /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
 		7F7F60561C1D8FA30039C1CF /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
-		7F7F60571C1D8FA30039C1CF /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
 		7FB16DA41C0F0D3B005BFC0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7FB16DA61C0F107E005BFC0F /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7FF142F11C4FCD740046B709 /* ReadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingView.h; sourceTree = "<group>"; };
@@ -98,7 +95,6 @@
 		7FF5B8D11C20081900966ED9 /* ReadingEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingEntity.m; sourceTree = "<group>"; };
 		7FF5B8F11C21080600966ED9 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		7FF5B8F21C21080600966ED9 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
-		7FF5B8F31C21080600966ED9 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,10 +217,8 @@
 				7F7F604A1C1D74C90039C1CF /* AboutViewController.xib */,
 				7F7F60551C1D8FA30039C1CF /* PictureViewController.h */,
 				7F7F60561C1D8FA30039C1CF /* PictureViewController.m */,
-				7F7F60571C1D8FA30039C1CF /* PictureViewController.xib */,
 				7FF5B8F11C21080600966ED9 /* QuestionViewController.h */,
 				7FF5B8F21C21080600966ED9 /* QuestionViewController.m */,
-				7FF5B8F31C21080600966ED9 /* QuestionViewController.xib */,
 				7FF142FA1C50995C0046B709 /* HttpOperation.h */,
 				7FF142FB1C50995C0046B709 /* HttpOperation.m */,
 			);
@@ -353,8 +347,6 @@
 				7F7F604C1C1D74C90039C1CF /* AboutViewController.xib in Resources */,
 				7FB16DA51C0F0D3B005BFC0F /* Default-568h@2x.png in Resources */,
 				7F7F60471C1D5A790039C1CF /* SettingTableViewController.xib in Resources */,
-				7FF5B8F51C21080600966ED9 /* QuestionViewController.xib in Resources */,
-				7F7F60591C1D8FA30039C1CF /* PictureViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "IOS-Two/Info.plist";
@@ -529,6 +522,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "IOS-Two/Info.plist";
