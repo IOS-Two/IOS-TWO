@@ -166,7 +166,7 @@
 //    [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
     
     self.readingViewArray = [[NSMutableArray alloc] init];
-    self.No = [AppDelegate getTotalVol];
+    self.No = [HttpOperation RequestTotalVol];
     UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"←" style:UIBarButtonItemStylePlain target:self action:@selector(LeftLook)];
     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"→" style:UIBarButtonItemStylePlain target:self action:@selector(RightLook)];
     self.navigationItem.leftBarButtonItem = left;
@@ -191,6 +191,12 @@
         NSDictionary * dict=[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
         self.navigationController.navigationBar.titleTextAttributes = dict;
     }
+    if (self.No == 0) {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"啊哦" message:@"加载失败···" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alter show];
+        return;
+    }
+
     
     NSString* who = [AppDelegate getRecommender];
     ReadingEntity *reading = [[ReadingEntity alloc] init];

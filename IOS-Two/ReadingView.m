@@ -45,8 +45,11 @@
     NSMutableString *HTMLContent = [[NSMutableString alloc] init];
     NSString *content = [reading ReadingContent];
     NSString* title = [reading ReadingTitle];
+    NSString* Author = [reading Author];
+    [HTMLContent appendString:[NSString stringWithFormat:@"<!-- vol --><div style=\"line-height: 26px; margin-top: 15px; margin-left: 15px; margin-right: 15px; color: %@; font-size: 12px;font-family:verdana;\">Vol.%d</div>", charactersColor, [reading No]]];
     [HTMLContent appendString:[NSString stringWithFormat:@"<body bgcolor=\"%@\">", backgroundColor]];
     [HTMLContent appendString:[NSString stringWithFormat:@"<!-- 文章标题 --><body><p style=\"color: %@; font-size: 21px; font-weight: bold; margin-top: 0px; margin-left: 15px;\">%@</p>", charactersColor, title]];
+    [HTMLContent appendString:[NSString stringWithFormat:@"<!-- 文章作者 --><div style=\"line-height: 16px; margin-top: 5px; margin-left: 15px; margin-right: 15px; color: %@; font-size: 16px;\">%@</div></body>", @"888888", Author]];
     [HTMLContent appendString:[NSString stringWithFormat:@"<!-- 文章内容 --><div style=\"line-height: 26px; margin-top: 15px; margin-left: 15px; margin-right: 15px; color: %@; font-size: 16px;\">%@</div></body>", charactersColor, content]];
     [self.webview loadHTMLString:HTMLContent baseURL:nil];
     if ([backgroundColor isEqualToString:@"3C3C3C"]) {

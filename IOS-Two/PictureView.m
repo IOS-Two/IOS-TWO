@@ -69,15 +69,17 @@
     NSString *stringImage = [self htmlForJPGImage:picture];
     NSString *title = [NSString stringWithFormat:@"Vol.%d", [picture No]];
     NSString *des = [picture PictureDes];
-    NSString *HTMLTitle = [NSString stringWithFormat:@"<p style=\"color: %@; font-size: 21px; font-weight: bold; margin-top: 20px; margin-left: 0px;\">%@</p>", charactersColor, title];
-    NSString *HTMLContent =  [NSString stringWithFormat:@"<div style=\"line-height: 20px; margin-top: 10px; margin-left: 0px; margin-right: 15px; color: %@; font-size: 12px;\">%@</div></br>", charactersColor, des];
-    NSString *contentImg = [NSString stringWithFormat:@"<p style=\"  font-size: 14px; font-weight: bold; margin-top: 20px; margin-left: 0px; margin-left: 0px;\">%@</p>",stringImage];
-    NSString *HTMLAuthor =  [NSString stringWithFormat:@"<div style=\"line-height: 6px; margin-top: 0px; margin-left: 0px; text-align: right ;margin-right: 15px; color: %@; font-size: 12px;\">%@</div>", charactersColor, [picture Author]];
+    NSString *HTMLTitle = [NSString stringWithFormat:@"<!-- vol --><div style=\"line-height: 26px; margin-top: 15px; margin-left: 7px; margin-right: 15px; color: %@; font-size: 12px;font-family:verdana;\">%@</div>", charactersColor, title];
+    NSString *HTMLContent =  [NSString stringWithFormat:@"<div style=\"line-height: 26px; margin-top: 10px; margin-left: 7px; margin-right: 15px; color: %@; font-size: 16px;font-family:SimHei;\">%@</div></br>", charactersColor, des];
+    NSString *contentImg = [NSString stringWithFormat:@"<p style=\"  font-size: 14px; font-weight: bold; margin-top: 0px; margin-right: 0px; margin-left: 7px;\">%@</p>",stringImage];
+    NSString *pictureTitle =  [NSString stringWithFormat:@"<div style=\"line-height: 26px; margin-top: 0px; margin-left: 0px; text-align: right ;margin-right: 15px; color: %@; font-size: 16px;font-family:SimHei;\">%@</div>", charactersColor, [picture title]];
+    NSString *HTMLAuthor =  [NSString stringWithFormat:@"<div style=\"line-height: 26px; margin-top: 0px; margin-left: 0px; text-align: right ;margin-right: 15px; color: %@; font-size: 16px;font-family:SimHei;\">%@</div>", charactersColor, [picture Author]];
     
     NSString *content =[NSString stringWithFormat:
                         @"<html>"
                         "<body bgcolor=\"%@\">"
                         "<body>"
+                        "%@"
                         "%@"
                         "%@"
                         "%@"
@@ -88,6 +90,7 @@
                         ,HTMLTitle
                         ,contentImg
                         , HTMLContent
+                        , pictureTitle
                         , HTMLAuthor];
     
     //让self.contentWebView加载content
@@ -96,20 +99,23 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
+    float height = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue];
+    NSLog(@"documentSize = %f", height);
     NSArray *sv = [NSArray arrayWithArray:[self.webview subviews]];
     UIScrollView *webScroller = (UIScrollView *)[sv objectAtIndex:0];
     CGSize webSize = [webView sizeThatFits:CGSizeZero];
+    NSLog(@"WebViewSize = %f", webSize.height);
     self.webview.scrollView.contentSize =CGSizeMake([[UIScreen mainScreen] bounds].size.width,
-                                                    webSize.height + 150);
+                                                    height - 150);
     self.webview.scrollView.backgroundColor = [UIColor whiteColor];
-    self.Zan = [[UIButton alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width - 70, webSize.height, 70, 20)];
+    self.Zan = [[UIButton alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width - 70, height - 150, 70, 20)];
     self.Zan.imageEdgeInsets = UIEdgeInsetsMake(2, -22, 0, 0);
     
     UIImage *btnImage = [[UIImage imageNamed:@"LikeBG"] stretchableImageWithLeftCapWidth:70
                                                                             topCapHeight:2];
     [self.Zan setBackgroundImage:btnImage forState:UIControlStateNormal];
     [self.Zan setTitle:@"12" forState:UIControlStateNormal];
-    [self.Zan.titleLabel setFrame:CGRectMake(280, webSize.height + 63, 40, 17)];
+    [self.Zan.titleLabel setFrame:CGRectMake(280, height + 63, 40, 17)];
     self.Zan.titleLabel.font = [UIFont systemFontOfSize:10];
     [self.Zan.titleLabel setHidden:NO];
     [self.Zan setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

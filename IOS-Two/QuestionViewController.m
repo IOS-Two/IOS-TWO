@@ -139,7 +139,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.No = [AppDelegate getTotalVol];
+    self.No = [HttpOperation RequestTotalVol];;
     UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"←" style:UIBarButtonItemStylePlain target:self action:@selector(LeftLook)];
     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"→" style:UIBarButtonItemStylePlain target:self action:@selector(RightLook)];
     self.navigationItem.leftBarButtonItem = left;
@@ -166,7 +166,11 @@
         self.navigationController.navigationBar.titleTextAttributes = dict;
 
     }
-
+    if (self.No == 0) {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"啊哦" message:@"加载失败···" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alter show];
+        return;
+    }
     NSString* who = [AppDelegate getRecommender];
     QuestionEntity *question = [[QuestionEntity alloc] init];
     NSString * temp = [NSString stringWithFormat:@"Question%d%@.archive" ,self.No, who];

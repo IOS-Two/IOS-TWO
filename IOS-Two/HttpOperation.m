@@ -13,10 +13,25 @@
 
 @implementation HttpOperation
 
++(int)RequestTotalVol {
+    NSString *data1 = TotalUrl;
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:data1]];
+    NSError * error = nil;
+    NSURLResponse *response=nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    if (data == nil) {
+        return 0;
+    }
+    NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return (int)[aString integerValue];
+}
+
 +(QuestionEntity*)RequestQuestionContent:(int)No{
     NSString* who = [AppDelegate getRecommender];
     QuestionEntity* question = [[QuestionEntity alloc] init];
-    NSString *data1 = @"http://localhost:8080/IosService/question";
+    NSString *data1 = QuestionUrl;
     data1 = [data1 stringByAppendingString:@"?date="];
     data1 = [data1 stringByAppendingString:[NSString stringWithFormat:@"%d", No]];
     data1 = [data1 stringByAppendingString:[NSString stringWithFormat:@"&who=%@", who]];
@@ -29,6 +44,9 @@
     NSData * data = [NSURLConnection sendSynchronousRequest:request
                                           returningResponse:&response
                                                       error:&error];
+    if (data == nil) {
+        return nil;
+    }
     if (error == nil) NSLog(@"success");
     id JsonObj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     NSDictionary *jsonDictionary = (NSDictionary*)JsonObj;
@@ -41,7 +59,7 @@
 +(ReadingEntity*)RequestReadingContent:(int)No {
     NSString* who = [AppDelegate getRecommender];
     ReadingEntity* reading = [[ReadingEntity alloc] init];
-    NSString *data1 = @"http://localhost:8080/IosService/Reading";
+    NSString *data1 = ReadingUrl;
     data1 = [data1 stringByAppendingString:@"?date="];
     data1 = [data1 stringByAppendingString:[NSString stringWithFormat:@"%d", No]];
     data1 = [data1 stringByAppendingString:[NSString stringWithFormat:@"&who=%@", who]];
@@ -53,6 +71,9 @@
     NSData * data = [NSURLConnection sendSynchronousRequest:request
                                           returningResponse:&response
                                                       error:&error];
+    if (data == nil) {
+        return nil;
+    }
     id JsonObj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     NSDictionary *jsonDictionary = (NSDictionary*)JsonObj;
     NSString *desContent = [[jsonDictionary valueForKey:@"article"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -71,7 +92,7 @@
 +(PictureEntity*)RequestPictureContent:(int)No {
     NSString* who = [AppDelegate getRecommender];
     PictureEntity* picture = [[PictureEntity alloc] init];
-    NSString *data1 = @"http://localhost:8080/IosService/Picture";
+    NSString *data1 = PictureUrl;
     data1 = [data1 stringByAppendingString:@"?date="];
     data1 = [data1 stringByAppendingString:[NSString stringWithFormat:@"%d", No]];
     data1 = [data1 stringByAppendingString:[NSString stringWithFormat:@"&who=%@", who]];
@@ -82,6 +103,9 @@
     NSData * data = [NSURLConnection sendSynchronousRequest:request
                                           returningResponse:&response
                                                       error:&error];
+    if (data == nil) {
+        return nil;
+    }
     id JsonObj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     NSDictionary *jsonDictionary = (NSDictionary*)JsonObj;
     

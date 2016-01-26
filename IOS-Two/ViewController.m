@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "HttpOperation.h"
 
 @interface ViewController ()
 @end
@@ -18,9 +19,10 @@ NSURLRequest *urlRequest;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     CGRect cgrect=[UIScreen mainScreen].bounds;
     uiWebVIew = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,cgrect.size.width,cgrect.size.height)];
-    urlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    urlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:AboutUrl]];
     [self.view addSubview:uiWebVIew];
     uiWebVIew.delegate=self;
     [uiWebVIew loadRequest:urlRequest];
@@ -47,7 +49,7 @@ NSURLRequest *urlRequest;
     
 }
 
-//webview加载完去掉加载中
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [activityIndicator stopAnimating];
@@ -57,11 +59,13 @@ NSURLRequest *urlRequest;
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
+    NSLog(@"%@", error);
     [activityIndicator stopAnimating];
     UIView *view =[self.view viewWithTag:108];
     [view removeFromSuperview];
+    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"啊哦" message:@"加载失败···" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alter show];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

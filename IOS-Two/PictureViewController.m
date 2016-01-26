@@ -60,6 +60,7 @@
         }
         
         [self.pictureView removeFromSuperview];
+        self.pictureView = nil;
         [self addPictureViewToSuperView:self.No BackC:backgroundColor CharC:charactersColor];
         [UIView commitAnimations];
     }
@@ -89,6 +90,7 @@
         }
         
         [self.pictureView removeFromSuperview];
+        self.pictureView = nil;
         [self addPictureViewToSuperView:self.No BackC:backgroundColor CharC:charactersColor];
         [UIView commitAnimations];
     }
@@ -112,7 +114,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.No = [AppDelegate getTotalVol];
+    self.No = [HttpOperation RequestTotalVol];;
     NSString *backgroundColor;
     NSString *charactersColor;
     UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"←" style:UIBarButtonItemStylePlain target:self action:@selector(LeftLook)];
@@ -137,6 +139,11 @@
         NSDictionary * dict=[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
         self.navigationController.navigationBar.titleTextAttributes = dict;
     }
+    if (self.No == 0) {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"啊哦" message:@"加载失败···" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alter show];
+        return;
+    }
     [self addPictureViewToSuperView:self.No BackC:backgroundColor CharC:charactersColor];
     
 }
@@ -144,7 +151,7 @@
 -(void)addPictureViewToSuperView:(int)No BackC:(NSString*)back CharC:(NSString*)charC{
     PictureEntity *picture = [[PictureEntity alloc] init];
     CGRect mainrect = [UIScreen mainScreen].bounds;
-    self.pictureView = [[PictureView alloc] initWithFrame:CGRectMake(0, 60, mainrect.size.width, mainrect.size.height)];
+    self.pictureView = [[PictureView alloc] initWithFrame:CGRectMake(0, 50, mainrect.size.width, mainrect.size.height)];
     NSString * who = [AppDelegate getRecommender];
     NSString * temp = [NSString stringWithFormat:@"picture%d%@.archive" ,No, who];
     NSString *homePath = NSHomeDirectory();
@@ -152,7 +159,10 @@
     if ([NSKeyedUnarchiver unarchiveObjectWithFile:path] == nil) {
         
         picture = [HttpOperation RequestPictureContent:No];
-        NSString *data1 = @"http://localhost:8080/IosService/picture/";
+        if (picture == nil) {
+            
+        }
+        NSString *data1 = ImageUrl;
         data1 = [data1 stringByAppendingString:[picture PicutureUrl]];
         NSLog(@"%@", data1);
         NSURL *url = [NSURL URLWithString:[data1 stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];

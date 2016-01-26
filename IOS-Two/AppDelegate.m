@@ -12,6 +12,7 @@
 #import "PictureViewController.h"
 #import "SettingTableViewController.h"
 #import "QuestionViewController.h"
+#import "HttpOperation.h"
 
 static int who;
 static int TotalVol;
@@ -66,15 +67,7 @@ static BOOL isNight;
     UITabBarController *rootTabBarController = [[UITabBarController alloc] init];
     who = 0;
     isNight = false;
-    NSString *data1 = @"http://localhost:8080/IosService/TotalVol";
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:data1]];
-    NSError * error = nil;
-    NSURLResponse *response=nil;
-    NSData * data = [NSURLConnection sendSynchronousRequest:request
-                                          returningResponse:&response
-                                                      error:&error];
-    NSString *aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    TotalVol = (int)[aString integerValue];
+    TotalVol = [HttpOperation RequestTotalVol];
     NSLog(@"%d", TotalVol);
    
     ViewController *v1 = [[ViewController alloc] init];
