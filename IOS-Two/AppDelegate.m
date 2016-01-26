@@ -74,26 +74,47 @@ static BOOL isNight;
     v1.navigationItem.title=@"首页";
     UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:v1];
     nav1.tabBarItem.title = @"首页";
+    UIImage *deselectedImage = [[UIImage imageNamed:@"Home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    UIImage *selectedImage = [[UIImage imageNamed:@"Home_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav1.tabBarItem.image = deselectedImage;
+//    nav1.tabBarItem.selectedImage = selectedImage;
     
     ReadViewController *v2 = [[ReadViewController alloc]init];
     v2.navigationItem.title=@"文章";
     UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:v2];
     nav2.tabBarItem.title = @"文章";
+    deselectedImage = [[UIImage imageNamed:@"Read"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    selectedImage = [[UIImage imageNamed:@"Read_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav2.tabBarItem.image = deselectedImage;
+//    nav2.tabBarItem.selectedImage = selectedImage;
     
     QuestionViewController *v3 = [[QuestionViewController alloc]init];
     v3.navigationItem.title = @"问题";
     UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:v3];
     nav3.tabBarItem.title = @"问题";
+    deselectedImage = [[UIImage imageNamed:@"Question"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    //    selectedImage = [[UIImage imageNamed:@"Read_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav3.tabBarItem.image = deselectedImage;
+    //    nav4.tabBarItem.selectedImage = selectedImage;
     
     PictureViewController *v4 = [[PictureViewController alloc]init];
     v4.navigationItem.title = @"图片";
     UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:v4];
     nav4.tabBarItem.title = @"图片";
+    deselectedImage = [[UIImage imageNamed:@"Picture"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    selectedImage = [[UIImage imageNamed:@"Read_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav4.tabBarItem.image = deselectedImage;
+//    nav4.tabBarItem.selectedImage = selectedImage;
+
     
     SettingTableViewController *v5 = [[SettingTableViewController alloc]init];
     v5.navigationItem.title = @"设置";
     UINavigationController *nav5 = [[UINavigationController alloc]initWithRootViewController:v5];
     nav5.tabBarItem.title = @"设置";
+    deselectedImage = [[UIImage imageNamed:@"Setting"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    //    selectedImage = [[UIImage imageNamed:@"Read_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav5.tabBarItem.image = deselectedImage;
+    //    nav4.tabBarItem.selectedImage = selectedImage;
     
     rootTabBarController.viewControllers = @[nav1,nav2,nav3,nav4,nav5];
     self.window.rootViewController = rootTabBarController;

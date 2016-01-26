@@ -151,7 +151,7 @@
 -(void)addPictureViewToSuperView:(int)No BackC:(NSString*)back CharC:(NSString*)charC{
     PictureEntity *picture = [[PictureEntity alloc] init];
     CGRect mainrect = [UIScreen mainScreen].bounds;
-    self.pictureView = [[PictureView alloc] initWithFrame:CGRectMake(0, 50, mainrect.size.width, mainrect.size.height)];
+    self.pictureView = [[PictureView alloc] initWithFrame:CGRectMake(0, 60, mainrect.size.width, mainrect.size.height)];
     NSString * who = [AppDelegate getRecommender];
     NSString * temp = [NSString stringWithFormat:@"picture%d%@.archive" ,No, who];
     NSString *homePath = NSHomeDirectory();

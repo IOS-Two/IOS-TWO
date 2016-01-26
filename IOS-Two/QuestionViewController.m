@@ -22,6 +22,7 @@
 @implementation QuestionViewController
 
 -(void) viewWillAppear:(BOOL)animated {
+    
     if ([SettingTableViewController getNightModeIsSwitch]) {
         [SettingTableViewController setNightModeIsSwitch:false];
         [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];

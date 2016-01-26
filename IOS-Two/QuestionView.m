@@ -80,7 +80,12 @@ charactersColor {
     [self.Zan.titleLabel setFrame:CGRectMake(280, webSize.height + 63, 40, 17)];
     self.Zan.titleLabel.font = [UIFont systemFontOfSize:10];
     [self.Zan.titleLabel setHidden:NO];
-    [self.Zan setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    if ([self.backgroundColor isEqual:[UIColor whiteColor]])
+        [self.Zan setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    else {
+        [self.Zan setTitleColor:[UIColor colorWithRed:0xD0/255.0 green:0xD0/255.0 blue:0xD0/255.0 alpha:1] forState:UIControlStateNormal];
+    }
+
     
     [self.Zan setImage:[UIImage imageNamed:@"Image"] forState:UIControlStateNormal];
     [self.Zan setImage:[UIImage imageNamed:@"Image-1"] forState:UIControlStateSelected];

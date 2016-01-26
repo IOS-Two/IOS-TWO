@@ -71,7 +71,7 @@
     NSString *des = [picture PictureDes];
     NSString *HTMLTitle = [NSString stringWithFormat:@"<!-- vol --><div style=\"line-height: 26px; margin-top: 15px; margin-left: 7px; margin-right: 15px; color: %@; font-size: 12px;font-family:verdana;\">%@</div>", charactersColor, title];
     NSString *HTMLContent =  [NSString stringWithFormat:@"<div style=\"line-height: 26px; margin-top: 10px; margin-left: 7px; margin-right: 15px; color: %@; font-size: 16px;font-family:SimHei;\">%@</div></br>", charactersColor, des];
-    NSString *contentImg = [NSString stringWithFormat:@"<p style=\"  font-size: 14px; font-weight: bold; margin-top: 0px; margin-right: 0px; margin-left: 7px;\">%@</p>",stringImage];
+    NSString *contentImg = [NSString stringWithFormat:@"<p style=\"  font-size: 14px; font-weight: bold; margin-top: 10px; margin-right: 0px; margin-left: 7px;\">%@</p>",stringImage];
     NSString *pictureTitle =  [NSString stringWithFormat:@"<div style=\"line-height: 26px; margin-top: 0px; margin-left: 0px; text-align: right ;margin-right: 15px; color: %@; font-size: 16px;font-family:SimHei;\">%@</div>", charactersColor, [picture title]];
     NSString *HTMLAuthor =  [NSString stringWithFormat:@"<div style=\"line-height: 26px; margin-top: 0px; margin-left: 0px; text-align: right ;margin-right: 15px; color: %@; font-size: 16px;font-family:SimHei;\">%@</div>", charactersColor, [picture Author]];
     
@@ -106,9 +106,9 @@
     CGSize webSize = [webView sizeThatFits:CGSizeZero];
     NSLog(@"WebViewSize = %f", webSize.height);
     self.webview.scrollView.contentSize =CGSizeMake([[UIScreen mainScreen] bounds].size.width,
-                                                    height - 150);
+                                                    height+ 150);
     self.webview.scrollView.backgroundColor = [UIColor whiteColor];
-    self.Zan = [[UIButton alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width - 70, height - 150, 70, 20)];
+    self.Zan = [[UIButton alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width - 70, 20, 70, 20)];
     self.Zan.imageEdgeInsets = UIEdgeInsetsMake(2, -22, 0, 0);
     
     UIImage *btnImage = [[UIImage imageNamed:@"LikeBG"] stretchableImageWithLeftCapWidth:70
@@ -118,7 +118,11 @@
     [self.Zan.titleLabel setFrame:CGRectMake(280, height + 63, 40, 17)];
     self.Zan.titleLabel.font = [UIFont systemFontOfSize:10];
     [self.Zan.titleLabel setHidden:NO];
-    [self.Zan setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    if ([self.backgroundColor isEqual:[UIColor whiteColor]])
+        [self.Zan setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    else {
+        [self.Zan setTitleColor:[UIColor colorWithRed:0xD0/255.0 green:0xD0/255.0 blue:0xD0/255.0 alpha:1] forState:UIControlStateNormal];
+    }
     
     [self.Zan setImage:[UIImage imageNamed:@"Image"] forState:UIControlStateNormal];
     [self.Zan setImage:[UIImage imageNamed:@"Image-1"] forState:UIControlStateSelected];
