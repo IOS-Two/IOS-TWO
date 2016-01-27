@@ -16,25 +16,27 @@
 @interface QuestionViewController ()
 @property (strong, nonatomic) QuestionView* questionView;
 @property int No;
-
+@property BOOL NightMode;
+@property NSString* Recommender;
+@property BOOL isFirstTime;
 @end
 
 @implementation QuestionViewController
 
--(void) viewWillAppear:(BOOL)animated {
-    
-    if ([SettingTableViewController getNightModeIsSwitch]) {
-        [SettingTableViewController setNightModeIsSwitch:false];
-        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        [self viewDidLoad];
-    }
-    else if([SettingTableViewController getRecommenderIsSwitch]) {
-        [SettingTableViewController setRecommenderIsSwitch:false];
-        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        [self viewDidLoad];
-    }
+-(instancetype)init {
+    self.isFirstTime = true;
+    return self;
+}
 
-    
+
+-(void) viewWillAppear:(BOOL)animated {
+    if (![self.Recommender isEqualToString:[AppDelegate getRecommender]] ||
+        (self.NightMode != [AppDelegate getIsNight]))
+        [self viewDidLoad];
+    if (self.isFirstTime) {
+        self.isFirstTime = false;
+        [self viewDidLoad];
+    }
 }
 
 -(void) saveQuestion:(QuestionEntity *)question {
@@ -80,7 +82,7 @@
     else {
         [UIView beginAnimations:@"Curl" context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationDuration:0.75];
         [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view cache:YES];
         
         self.No--;
@@ -97,7 +99,7 @@
         QuestionEntity* question = [self loadQuestionContent:self.No];
         CGRect mainrect = [[UIScreen mainScreen] bounds];
         [self.questionView removeFromSuperview];
-        self.questionView = [[QuestionView alloc] initWithFrame:CGRectMake(0, 70, mainrect.size.width, mainrect.size.height)];
+        self.questionView = [[QuestionView alloc] initWithFrame:CGRectMake(0, 0, mainrect.size.width, mainrect.size.height)];
         [self.questionView ConfigureQuestionContent:question BackC:backgroundColor CharC:charactersColor];
         [self.view addSubview:self.questionView];
         [UIView commitAnimations];
@@ -112,7 +114,7 @@
     else {
         [UIView beginAnimations:@"Curl" context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationDuration:0.75];
         [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view cache:YES];
         
         self.No++;
@@ -129,7 +131,7 @@
         QuestionEntity* question = [self loadQuestionContent:self.No];
         CGRect mainrect = [[UIScreen mainScreen] bounds];
         [self.questionView removeFromSuperview];
-        self.questionView = [[QuestionView alloc] initWithFrame:CGRectMake(0, 70, mainrect.size.width, mainrect.size.height)];
+        self.questionView = [[QuestionView alloc] initWithFrame:CGRectMake(0, 0, mainrect.size.width, mainrect.size.height)];
         [self.questionView ConfigureQuestionContent:question BackC:backgroundColor CharC:charactersColor];
         [self.view addSubview:self.questionView];
         [UIView commitAnimations];
@@ -145,6 +147,8 @@
     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"→" style:UIBarButtonItemStylePlain target:self action:@selector(RightLook)];
     self.navigationItem.leftBarButtonItem = left;
     self.navigationItem.rightBarButtonItem = right;
+    self.Recommender = [AppDelegate getRecommender];
+    self.NightMode = [AppDelegate getIsNight];
 
     NSString *backgroundColor;
     NSString *charactersColor;
@@ -186,7 +190,7 @@
     }
     
     CGRect mainrect = [UIScreen mainScreen].bounds;
-    self.questionView = [[QuestionView alloc] initWithFrame:CGRectMake(0, 70, mainrect.size.width, mainrect.size.height)];
+    self.questionView = [[QuestionView alloc] initWithFrame:CGRectMake(0, 0, mainrect.size.width, mainrect.size.height)];
     [self.questionView ConfigureQuestionContent:question BackC:backgroundColor CharC:charactersColor];
     //[self.view addSubview:self.readingView];
     [self.view addSubview:self.questionView];

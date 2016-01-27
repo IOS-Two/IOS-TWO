@@ -11,9 +11,5 @@
 @interface SettingTableViewController : UITableViewController
 
 @property NSMutableArray *Items;
-+(BOOL)getRecommenderIsSwitch;
-+(BOOL)getNightModeIsSwitch;
-+(void)setRecommenderIsSwitch:(BOOL)a;
-+(void)setNightModeIsSwitch:(BOOL)a;
 
 @end

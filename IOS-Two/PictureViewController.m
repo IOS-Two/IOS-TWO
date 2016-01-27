@@ -16,24 +16,26 @@
 @interface PictureViewController ()
 @property (strong, nonatomic) PictureView* pictureView;
 @property int No;
-
+@property BOOL NightMode;
+@property NSString* Recommender;
+@property BOOL isFirstTime;
 @end
 
 @implementation PictureViewController
+-(instancetype)init {
+    self.isFirstTime = true;
+    return self;
+}
+
 
 -(void) viewWillAppear:(BOOL)animated {
-    
-    if ([SettingTableViewController getNightModeIsSwitch]) {
-        [SettingTableViewController setNightModeIsSwitch:false];
-        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    if (![self.Recommender isEqualToString:[AppDelegate getRecommender]] ||
+        (self.NightMode != [AppDelegate getIsNight]))
+        [self viewDidLoad];
+    if (self.isFirstTime) {
+        self.isFirstTime = false;
         [self viewDidLoad];
     }
-    else if([SettingTableViewController getRecommenderIsSwitch]) {
-        [SettingTableViewController setRecommenderIsSwitch:false];
-        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        [self viewDidLoad];
-    }
-
 }
 
 -(void)RightLook {
@@ -114,7 +116,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.No = [HttpOperation RequestTotalVol];;
+    self.No = [HttpOperation RequestTotalVol];
+    self.Recommender = [AppDelegate getRecommender];
+    self.NightMode = [AppDelegate getIsNight];
     NSString *backgroundColor;
     NSString *charactersColor;
     UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"←" style:UIBarButtonItemStylePlain target:self action:@selector(LeftLook)];
@@ -151,7 +155,7 @@
 -(void)addPictureViewToSuperView:(int)No BackC:(NSString*)back CharC:(NSString*)charC{
     PictureEntity *picture = [[PictureEntity alloc] init];
     CGRect mainrect = [UIScreen mainScreen].bounds;
-    self.pictureView = [[PictureView alloc] initWithFrame:CGRectMake(0, 60, mainrect.size.width, mainrect.size.height)];
+    self.pictureView = [[PictureView alloc] initWithFrame:CGRectMake(0, 0, mainrect.size.width, mainrect.size.height)];
     NSString * who = [AppDelegate getRecommender];
     NSString * temp = [NSString stringWithFormat:@"picture%d%@.archive" ,No, who];
     NSString *homePath = NSHomeDirectory();

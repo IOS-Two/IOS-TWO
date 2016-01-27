@@ -18,7 +18,9 @@
 //@property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) NSMutableArray* readingViewArray;
 @property (strong, nonatomic) ReadingView* readingView;
-
+@property BOOL NightMode;
+@property NSString* Recommender;
+@property BOOL isFirstTime;
 @property int No;
 
 @end
@@ -26,18 +28,20 @@
 @implementation ReadViewController
 //@synthesize rightSwipeGestureRecognizer;
 //@synthesize leftSwipeGestureRecognizer;
+-(instancetype)init {
+    self.isFirstTime = true;
+    return self;
+}
+
 
 -(void) viewWillAppear:(BOOL)animated {
 //    [super viewWillAppear:YES];
-    
-    if ([SettingTableViewController getNightModeIsSwitch]) {
-        [SettingTableViewController setNightModeIsSwitch:false];
-        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+//    
+    if (![self.Recommender isEqualToString:[AppDelegate getRecommender]] ||
+        (self.NightMode != [AppDelegate getIsNight]))
         [self viewDidLoad];
-    }
-    else if([SettingTableViewController getRecommenderIsSwitch]) {
-        [SettingTableViewController setRecommenderIsSwitch:false];
-        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    if (self.isFirstTime) {
+        self.isFirstTime = false;
         [self viewDidLoad];
     }
 }
@@ -86,7 +90,7 @@
         ReadingEntity* reading = [self loadReadingContent:self.No];
         CGRect mainrect = [[UIScreen mainScreen] bounds];
         [self.readingView removeFromSuperview];
-        self.readingView = [[ReadingView alloc] initWithFrame:CGRectMake(0, 70, mainrect.size.width, mainrect.size.height)];
+        self.readingView = [[ReadingView alloc] initWithFrame:CGRectMake(0, 0, mainrect.size.width, mainrect.size.height)];
         [self.readingView ConfigureReadingContent:reading BackC:backgroundColor CharC:charactersColor];
         [self.view addSubview:self.readingView];
         [UIView commitAnimations];
@@ -118,7 +122,7 @@
         ReadingEntity* reading = [self loadReadingContent:self.No];
         CGRect mainrect = [[UIScreen mainScreen] bounds];
         [self.readingView removeFromSuperview];
-        self.readingView = [[ReadingView alloc] initWithFrame:CGRectMake(0, 70, mainrect.size.width, mainrect.size.height)];
+        self.readingView = [[ReadingView alloc] initWithFrame:CGRectMake(0, 0, mainrect.size.width, mainrect.size.height)];
         [self.readingView ConfigureReadingContent:reading BackC:backgroundColor CharC:charactersColor];
         [self.view addSubview:self.readingView];
         [UIView commitAnimations];
@@ -164,7 +168,8 @@
 //    self.rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
 //    [self.view addGestureRecognizer:self.leftSwipeGestureRecognizer];
 //    [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
-    
+    self.Recommender = [AppDelegate getRecommender];
+    self.NightMode = [AppDelegate getIsNight];
     self.readingViewArray = [[NSMutableArray alloc] init];
     self.No = [HttpOperation RequestTotalVol];
     UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"←" style:UIBarButtonItemStylePlain target:self action:@selector(LeftLook)];
@@ -212,7 +217,7 @@
     }
     
     CGRect mainrect = [UIScreen mainScreen].bounds;
-    self.readingView = [[ReadingView alloc] initWithFrame:CGRectMake(0, 70, mainrect.size.width, mainrect.size.height)];
+    self.readingView = [[ReadingView alloc] initWithFrame:CGRectMake(0, 0, mainrect.size.width, mainrect.size.height)];
     [self.readingView ConfigureReadingContent:reading BackC:backgroundColor CharC:charactersColor];
     //[self.view addSubview:self.readingView];
     [self.view addSubview:self.readingView];

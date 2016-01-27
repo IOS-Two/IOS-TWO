@@ -8,8 +8,13 @@
 
 #import "ViewController.h"
 #import "HttpOperation.h"
+#import "SettingTableViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
+@property BOOL NightMode;
+@property NSString* Recommender;
+@property BOOL isFirstTime;
 @end
 
 @implementation ViewController
@@ -17,9 +22,66 @@
 UIActivityIndicatorView *activityIndicator;
 NSURLRequest *urlRequest;
 
+-(instancetype)init {
+    self.isFirstTime = true;
+    return self;
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    //    [super viewWillAppear:YES];
+    NSString *backgroundColor;
+    NSString *charactersColor;
+    if (![self.Recommender isEqualToString:[AppDelegate getRecommender]] ||
+        (self.NightMode != [AppDelegate getIsNight])) {
+        if ([AppDelegate getIsNight]) {
+            backgroundColor = @"3C3C3C";
+            charactersColor = @"D0D0D0";
+            self.view.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+            self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+            UIColor * color = [UIColor colorWithRed:0xD0/255.0 green:0xD0/255.0 blue:0xD0/255.0 alpha:1];
+            NSDictionary * dict=[NSDictionary dictionaryWithObject:color forKey:UITextAttributeTextColor];
+            self.navigationController.navigationBar.titleTextAttributes = dict;
+        }
+        else {
+            backgroundColor = @"FFFFFF";
+            charactersColor = @"333333";
+            self.view.backgroundColor = [UIColor whiteColor];
+            self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+            NSDictionary * dict=[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
+            self.navigationController.navigationBar.titleTextAttributes = dict;
+        }
+    }
+    if (self.isFirstTime) {
+        self.isFirstTime = false;
+        [self viewDidLoad];
+    }
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSString *backgroundColor;
+    NSString *charactersColor;
+    self.Recommender = [AppDelegate getRecommender];
+    self.NightMode = [AppDelegate getIsNight];
+    if ([AppDelegate getIsNight]) {
+        backgroundColor = @"3C3C3C";
+        charactersColor = @"D0D0D0";
+        self.view.backgroundColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0x3C/255.0 green:0x3C/255.0 blue:0x3C/255.0 alpha:1];
+        UIColor * color = [UIColor colorWithRed:0xD0/255.0 green:0xD0/255.0 blue:0xD0/255.0 alpha:1];
+        NSDictionary * dict=[NSDictionary dictionaryWithObject:color forKey:UITextAttributeTextColor];
+        self.navigationController.navigationBar.titleTextAttributes = dict;
+    }
+    else {
+        backgroundColor = @"FFFFFF";
+        charactersColor = @"333333";
+        self.view.backgroundColor = [UIColor whiteColor];
+        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+        NSDictionary * dict=[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor];
+        self.navigationController.navigationBar.titleTextAttributes = dict;
+    }
+
     CGRect cgrect=[UIScreen mainScreen].bounds;
     uiWebVIew = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,cgrect.size.width,cgrect.size.height)];
     urlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:AboutUrl]];
